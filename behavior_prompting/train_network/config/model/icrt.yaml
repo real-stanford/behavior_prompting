@@ -1,0 +1,47 @@
+_target_: behavior_prompting.train_network.policy.icrt_policy.ICRTPolicy
+name: icrt
+
+shape_meta: ${shape_meta}
+
+prompt_encoder:
+  _target_: behavior_prompting.train_network.model.prompt.prompt_obs_encoder.ICRTPromptObsEncoder
+  shape_meta: ${shape_meta}
+  train_image_transforms: ${...task.train_image_transforms}
+  eval_image_transforms: ${...task.eval_image_transforms}
+  vision_model_name: ${..vision_encoder_config.vision_encoder}
+
+icrt_config:
+  llama_ckpt_dir: null
+  scratch_llama_config: "config/model/icrt_params.json"
+  phase: "pretrain" # Phase of training
+  adapter_mlp_ratio: 4.0 # Adapter MLP ratio
+  adapter_num_heads: 8 # Number of heads for adapter
+  multikv_attn_pool: false # uses different linear layers for attention pooling
+  loss_w_action: 1.0 # Weight for action loss
+  lora_rank: 4 # Rank of LoRA layers for Llama
+  camera_pos_emb: false # add camera positional embeddings
+  modality_pos_emb: false # add modality positional embeddings
+  separate_camera_adapter: true # Separate encoder adapter for different cameras
+  rot_6d: false
+  train: true
+  max_batch_size: 32
+  pred_action_only: true # predict only action
+  remove_proprio: false # remove proprio from input
+  no_prompt_loss: true # no loss on prompt; note this is set to false for some reason in ICRT codebase even though the paper says it's important to not do loss on the prompt
+  decoder_pred_head: "mlp" # Prediction head, can be one of "mlp", "gmm", "diffusion"
+  use_delta_action: true # TODO: currently we assume delta action
+  kl_div_loss: false # use kl div loss
+  scale_loss: 1.0 # loss scaler
+  load_llama: false # load llama; note that is set to true by default in ICRT codebase
+  step_weight: 1.0 # step weight
+  num_train_diffusion_steps: null # training diffusion steps
+  num_inference_diffusion_steps: null # inference diffusion steps
+  scale_action: null
+
+vision_encoder_config:
+  vision_encoder: "vit_base_patch16_224.mae" # vision encoder type (or path to checkpoint)
+  vision_nonpretrained: false # Whether to use a randomly initialized vision encoder instead of pretrained weights
+  vision_unfreeze_all: true # Whether to unfreeze the vision encoder
+  vision_lora: false # Whether to use LoRA in the vision encoder
+  vision_lora_rank: 8 # Rank of LoRA layers
+  vision_unfreeze_last_n: 0 # Number of blocks unfrozen in the vision encoder

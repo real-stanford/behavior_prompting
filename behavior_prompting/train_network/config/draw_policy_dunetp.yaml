@@ -1,0 +1,58 @@
+# fits in 46gb
+
+defaults:
+  - draw_policy_base
+  - model: prompt_diffusion_unet
+  - _self_
+
+model:
+  obs_encoder:
+    obs_encoder:
+      use_pool_modality_pos_embed: false # the models in this paper were trained with this set to false, even though it makes sense to include it, but it probably has a very small effect anyways
+
+task:
+  shape_meta:
+    use_prompting: true
+    prompt_sample_mode: pair
+    obs:
+      goal_image:
+        ignore_by_policy: true
+
+dataloader:
+  batch_size: 200
+  num_workers: 8
+  persistent_workers: true
+  pin_memory: true
+  shuffle: true
+
+val_dataloader:
+  batch_size: 16
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+
+optimizer:
+  lr: 2.5e-5
+  weight_decay: 1.0e-6
+  betas: [0.95, 0.999]
+
+checkpoint:
+  save_train_loss_ckpt_every: 5
+
+training:
+  gradient_accumulate_every: 1
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  num_epochs: 40
+  rollout_every: 5
+  sample_every: 5
+  use_ema: true
+  freeze_encoder: False
+  val_every: 5
+  mixed_precision: 'bf16'
+  clip_grad_norm: 1.5
+  group_dataloader_by_task:
+    enabled: true
+    balanced: true
+    log_frequency: false

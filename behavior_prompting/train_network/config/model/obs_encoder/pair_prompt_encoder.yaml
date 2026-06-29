@@ -1,0 +1,71 @@
+_target_: behavior_prompting.train_network.model.prompt.prompt_obs_encoder.PairPromptObsEncoder
+shape_meta: ${shape_meta}
+obs_encoder:
+  _target_: behavior_prompting.train_network.model.prompt.prompt_obs_encoder.PairPromptTransformerTokenizer
+  shape_meta: ${shape_meta}
+  separate_prompt_and_receding_obs_encoders: False
+  obs_encoder:
+    _target_: behavior_prompting.train_network.model.vision.transformer_obs_encoder.TransformerObsEncoder
+    shape_meta: ${shape_meta}
+    global_pool: ''
+    n_emb: ${...n_emb}
+
+    ##### from scratch #####
+    # model_name: 'vit_base_patch16_224'
+    # model_name: 'resnet34'
+    # model_name: 'vit_tiny_patch16_224'
+    # model_name: 'efficientnet_b0'
+    # model_name: 'efficientnet_b3'
+    # pretrained: False
+    # frozen: False
+
+    ##### from scratch #####
+    # model_name: 'resnet34.a1_in1k'
+    model_name: 'vit_base_patch16_clip_224.openai'
+    # model_name: 'convnext_base.clip_laion2b_augreg_ft_in12k'
+    pretrained: True
+    frozen: False
+
+    # 'cls' or 'avg' or 'max' or 'soft_attention' or 'spatial_embedding' or 'transformer' or 'attention_pool_2d'
+    feature_aggregation: cls
+
+    # it only works for resnet. 32 (7x7) or 16 (14x14)
+    downsample_ratio: 32
+
+    train_image_transforms: ${.....task.train_image_transforms}
+    non_prompt_train_image_transforms: ${oc.select:.....task.non_prompt_train_image_transforms,null}
+    eval_image_transforms: ${.....task.eval_image_transforms}
+
+    use_group_norm: True
+    share_rgb_model: False
+    use_vision_norm: True
+    concat_time_dimension: False # we want to instead stack the embeddings so we have each observation/action type in a separate dimension
+  n_emb: ${..n_emb}
+  concat_prompt_and_receding: False
+  only_use_last_step_of_prompt: False
+  cut_first_n_steps_of_prompt: 0
+  ignore_prompt_obs: False
+  ignore_prompt_proprio: False
+  ignore_prompt_action: False
+  merge_prompt_tokens: obs_and_action   # none, obs, obs_and_action
+  use_pool_modality_pos_embed: true
+  prompt_attention_pool:
+    _target_: timm.layers.AttentionPoolLatent
+    in_features: ${...n_emb}
+    num_heads: 8
+    mlp_ratio: 4.0
+    pool_type: 'token'
+
+prompt_encoder_enabled: False
+prompt_encoder_n_layer: 6
+prompt_encoder_n_head: 8
+prompt_with_obs_decoder_enabled: True
+prompt_with_obs_decoder_n_layer: 6
+prompt_with_obs_decoder_n_head: 8
+ignore_prompt: False
+flatten_output: False
+n_emb: ${..n_emb}
+p_drop_attn: ${..p_drop_attn}
+p_drop_prompt_tokens: 0.0
+use_attention_sink: False
+num_attention_sink_tokens: 4

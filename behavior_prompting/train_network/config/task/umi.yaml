@@ -1,0 +1,139 @@
+name: umi
+
+train_rollout_max_tasks: 6
+train_rollout_only_task_names: null # for selecting a subset of train dataset tasks to use for rollout
+eval_dataset_path: null # optional, dataset of tasks to use only for env runner evaluation
+eval_rollout_only_task_names: null # for selecting a subset of eval dataset tasks to use for rollout
+eval_rollout_max_tasks: null # select the first n tasks from the eval dataset to use for rollout
+obs_down_sample_steps: 3 # relative to 60Hz data collection for all data except ultrawide meaning we convert out data to 20Hz
+ultrawide_down_sample_steps: 1 # relative to 10Hz data collection of ultrawide
+
+low_dim_obs_horizon: 2
+img_obs_horizon: 2
+action_horizon: 16
+ignore_proprioception: False
+
+shape_meta: &shape_meta
+  image_resolution: 224
+  prompt_sequence_length: 512 # not tuned yet
+  max_prompt_full_demos: 1
+  prompt_chunk_n_actions: 20 # starts at 60Hz data -> downsampled to 20Hz because of downsample ratio of 3 -> chunking of size 20 leads to 1Hz prompt data
+  pad_end_prompt_actions: repeat # no, zeros, or repeat
+  max_sequence_length: 1200 # longest demonstration length in steps (1200 steps at 20Hz is 1 minute)
+  use_prompting: false
+  prompt_sample_mode: pair
+  action:
+    shape: [10]
+    horizon: ${task.action_horizon}
+    down_sample_steps: ${task.obs_down_sample_steps} # int
+    rotation_rep: rotation_6d
+    components:
+      - type: right_pos
+        size: 3
+      - type: right_rot
+        size: 6
+      - type: right_gripper_width
+        size: 1
+  obs:
+    camera_right_main_rgb:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon} # int
+      down_sample_steps: ${task.obs_down_sample_steps} # int
+      type: rgb
+      ignore_by_policy: false
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: observation
+    camera_right_ultrawide_rgb:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon} # int
+      down_sample_steps: ${task.ultrawide_down_sample_steps} # int
+      type: rgb
+      ignore_by_policy: false
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: observation
+    gripper_right_eef_pos:
+      shape: [3]
+      horizon: ${task.low_dim_obs_horizon} # int
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+      sampler_prompt_type: proprioception # we need this to compute prompt actions even if the policy ignores it
+    gripper_right_eef_rot_axis_angle:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon} # int
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      rotation_rep: rotation_6d
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+      sampler_prompt_type: proprioception # we need this to compute prompt actions even if the policy ignores it
+    gripper_right_gripper_width:
+      shape: [1]
+      horizon: ${task.low_dim_obs_horizon} # int
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception
+    # the intuition for including this is for some tasks it's helpful to know if we have overall looked left or right (for example) with respect to the start of the episode/task, though including this makes the policy theoretically dependent on the start of the episode/task instead of being Markovian. We leave this ignored by default.
+    gripper_right_eef_rot_axis_angle_wrt_start:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon} # int
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      in_replay_buffer: false # this key is not stored directly in the replay buffer. Instead it is computed from the other sampled data
+      ignore_by_policy: true
+      include_in_receding_obs: false
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+  
+task_name: &task_name ${name}
+pose_repr:
+  obs_pose_repr: relative # abs or relative or delta
+  action_pose_repr: relative # abs or relative or delta
+
+eval_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: CenterCrop
+      ratio: 0.95
+
+train_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: RandomCrop
+      ratio: 0.95
+    - _target_: torchvision.transforms.ColorJitter
+      brightness: 0.3
+      contrast: 0.4
+      saturation: 0.5
+      hue: 0.08
+
+dataset:
+  _target_: behavior_prompting.train_network.dataset.umi_task_dataset.UmiTaskDataset
+  shape_meta: ${shape_meta}
+  dataset_path: null
+  cache_dir: null
+  pose_repr: ${task.pose_repr}
+  action_padding: true # since we are training multi-task models, we want to pad the actions as to not cut off the ends of each task. In the single-task setting it didn't matter if the ends were cut off since there is usually a reset action at the end of the demonstration where the gripper returns to the starting position. However in the multi-task setting there is likely important actions at the very end of the subtask before transitioning to the next subtask.
+  action_padding_error_correction: false # EC demos should be recorded slightly longer than the actual recovery behavior (by a length equal to the action horizon) so the tail can be safely cut off. Disabling padding avoids training the model to freeze (repeat last action) at the end of a recovery segment which is often not what you want to teach the model since the recovery behavior might not be completing the full task.
+  temporally_independent_normalization: False # temporally independent normalization makes sense for relative action space as actions further in the prediction horizon are likely to have higher magnitude than action earlier in the prediction horizon. Note that this setting applies to both observations and actions. However when I set this to True, the model was not able to converge and had much higher training loss.
+  max_normalizer_iterations: null # null means no limit; otherwise caps number of dataloader iterations used to compute normalization
+  seed: 42
+  val_ratio: 0.05
+  include_labels: false
+  sample_type: episode
+  max_segments: -1
+  prompt_relative_to: last

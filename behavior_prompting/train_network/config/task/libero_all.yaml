@@ -1,0 +1,15 @@
+# use this if you want to train on all the libero tasks and then report numbers on all the individual splits
+
+defaults:
+  - libero_defaults
+
+name: libero_all
+dataset_splits:
+  - libero_10
+  - libero_90
+  - libero_goal
+  - libero_object
+  - libero_spatial
+
+env_runner:
+  max_steps: 550 # longest training demo has 505 steps

@@ -1,0 +1,45 @@
+# fits in 24gb
+
+defaults:
+  - libero_policy_base
+  - model: diffusion_unet
+  - _self_
+
+task:
+  shape_meta:
+    obs:
+      task_language:
+        ignore_by_policy: false
+      goal_image:
+        ignore_by_policy: true
+
+dataloader:
+  batch_size: 28
+  num_workers: 8
+  persistent_workers: true
+  pin_memory: true
+  shuffle: true
+
+val_dataloader:
+  batch_size: 32
+  num_workers: 8
+  persistent_workers: true
+  pin_memory: true
+  shuffle: false
+
+optimizer:
+  lr: 5.0e-5
+  betas: [0.95, 0.999]
+  eps: 1.0e-8
+  weight_decay: 1.0e-6
+
+training:
+  gradient_accumulate_every: 1
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  max_train_steps: null
+  max_val_steps: null
+  use_ema: true
+  freeze_encoder: False
+  mixed_precision: 'no'
+  clip_grad_norm: 0.3

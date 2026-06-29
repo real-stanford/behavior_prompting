@@ -1,0 +1,16 @@
+__pycache__
+.vscode/**
+!.vscode/*.code-workspace
+**/tmp**
+*.egg-info
+.DS_Store
+data
+wandb
+outputs
+MUJOCO_LOG.TXT
+*.log
+cache
+runs
+datasets
+profile_output*
+.nfs*

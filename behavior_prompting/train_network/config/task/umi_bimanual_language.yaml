@@ -1,0 +1,18 @@
+defaults:
+  - umi_bimanual
+
+name: umi_bimanual_language
+
+shape_meta: &shape_meta
+  obs:
+    task_language:
+      shape: [77] # CLIP token sequence length (max_length)
+      type: low_dim
+      horizon: 1
+      ignore_by_policy: false
+      in_replay_buffer: false
+      is_language: true
+
+dataset:
+  text_encoder_model_name: ${oc.select:model.obs_encoder.text_encoder_model_name,null}
+  sample_type: task

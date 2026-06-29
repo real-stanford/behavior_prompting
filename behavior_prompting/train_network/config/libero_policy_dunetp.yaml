@@ -1,0 +1,54 @@
+# fits in 46gb
+
+defaults:
+  - libero_policy_base
+  - model: prompt_diffusion_unet
+  - _self_
+
+model:
+  obs_encoder:
+    use_attention_sink: true # we found that without the attention sink the model puts a lot of attention weight on the first few tokens. We introduce the attention sink not for performance reasons, but because it makes the attention visualization more interpretable (the model uses the first few tokens as a "memory/storage" as part of the transformer attention). See https://arxiv.org/abs/2309.17453
+    obs_encoder:
+      use_pool_modality_pos_embed: false # the models in this paper were trained with this set to false, even though it makes sense to include it, but it probably has a very small effect anyways
+
+task:
+  shape_meta:
+    use_prompting: true
+    prompt_sample_mode: pair
+    obs:
+      task_language:
+        ignore_by_policy: true
+      goal_image:
+        ignore_by_policy: true
+
+dataloader:
+  batch_size: 100
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: true
+
+val_dataloader:
+  batch_size: 16
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+
+optimizer:
+  lr: 5.0e-5
+  weight_decay: 1.0e-6
+  betas: [0.95, 0.999]
+
+training:
+  gradient_accumulate_every: 1
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  use_ema: true
+  freeze_encoder: False
+  mixed_precision: 'bf16'
+  clip_grad_norm: 0.3
+  group_dataloader_by_task:
+    enabled: true
+    balanced: true
+    log_frequency: false

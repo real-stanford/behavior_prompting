@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - task
+
+dataloader:
+  batch_size: 250 # since we are only using 1 camera we can increase the batch size
+
+checkpoint:
+  save_train_loss_ckpt_every: 5
+
+training:
+  clip_grad_norm: 0.2
+  num_epochs: 50 # this is reasonable number for 1000 task drawing dataset
+
+optimizer:
+  lr: 4e-5

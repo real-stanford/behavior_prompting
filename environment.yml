@@ -1,0 +1,97 @@
+name: bp
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - patchelf=0.17.2
+  - exiftool=12.76
+  - cmake=3.26.0
+  - make=4.4.1
+  - ffmpeg=8.0.1=gpl_* # gpl version (compared to lgpl version) contains h264 encoder codec
+  - pip==24.0 # had to pin versions of pip, setuptools, wheel to avoid issues with gym==0.21.0 installation
+  - setuptools==65.5.0
+  - wheel==0.38.4
+  - glfw=3.4
+  - pip:
+    # if using server that is >= CUDA 12.8, use the following:
+    # - torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+    # - torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu128
+
+    # if using server that is < CUDA 12.8, use the following:
+    - torch==2.7.1 --index-url https://download.pytorch.org/whl/cu118
+    - torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu118
+
+    # if your system doesn't support CUDA
+    # - torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+    # - torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cpu
+
+    - accelerate==1.10.1
+    - huggingface_hub==0.35.3
+    - transformers==4.57.1
+    - diffusers==0.35.1
+    - numpy==1.26.4
+    - moviepy==2.2.1
+    - lmdb==2.2.0
+    - seaborn==0.13.2
+    - pillow==11.3.0
+    - quaternion==3.5.2.post4
+    - plotly==6.7.0
+    - scipy==1.15.3
+    - transforms3d==0.4.2
+    - flask-socketio==5.6.1
+    - simple-websocket==1.1.0
+    - matplotlib==3.10.8
+    - tqdm==4.67.3
+    - pandas==2.3.3
+    - opencv-python==4.11.0.86 # will have ffmpeg with lgpl not gpl, so won't have h264 encoder codec, unfortunately
+    - imageio-ffmpeg==0.6.0 # thus we use imageio-ffmpeg instead to wrap around the ffmpeg we have installed through conda that has h264 encoder codec
+    - av==17.0.0
+    - colorama==0.4.6
+    - zarr==2.16.0
+    - numcodecs==0.13.1
+    - pyyaml==6.0.3
+    - hydra-core==1.2.0
+    - safetensors==0.6.2
+    - dill==0.3.7
+    - einops==0.6.1
+    - timm==1.0.20
+    - wandb==0.27.2
+    - numba==0.61.2
+    - click==8.3.2
+    - pyzmq==27.1.0
+    - robotmq==0.1.14
+    - pynput==1.8.1
+    - qrcode==8.2
+    - easydict==1.9
+    - cloudpickle==2.1.0
+    - ipykernel==7.2.0
+    - lxml==6.0.3
+    - gdown==5.2.1
+    - gym==0.21.0
+    - pymunk==6.2.1
+    - shapely==1.8.4
+    - scikit-image==0.19.3
+    - line_profiler==5.0.2
+    - open3d==0.19.0
+    - record3d==1.4.1
+    - PyExifTool==0.5.0
+    - imagecodecs==2023.9.18
+    - threadpoolctl==3.2.0
+    - atomics==1.0.3
+    - spnav @ https://github.com/cheng-chi/spnav/archive/c1c938ebe3cc542db4685e0d13850ff1abfdb943.tar.gz
+    - hidapi==0.15.0
+    - pygame==2.6.1
+    - free-mujoco-py==2.1.6
+    - mujoco==3.3.0 # not fully clear why we have mujoco_py which is older version and also mujoco which is newer version
+    - robosuite==1.4.0
+    - thop==0.1.1-2209072238
+    - bddl==1.0.1
+    - future==0.18.2
+
+    # not on pypi
+    - git+https://github.com/austinapatel/robomimic.git@behavior_prompting_fixes # custom version of robomimic 0.2.0 with two changes: 1. remove egl_probe calls because they were really slow on some servers and 2. backport one of the fixes that enables support with robosuite==1.4.0
+
+    # local package installs
+    - -e deps/icrt
+    - --config-settings editable_mode=compat -e deps/LIBERO
+    - -e . # install `behavior_prompting` package

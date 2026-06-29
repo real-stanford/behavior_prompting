@@ -1,0 +1,15 @@
+defaults:
+  - policy_base
+  - task: umi
+
+checkpoint:
+  save_last_ckpt: False
+  save_last_snapshot: False
+  topk:
+    monitor_key: val_action_mse_error_all
+    format_str: 'epoch={epoch:04d}-val_action_mse_error_all={val_action_mse_error_all:.7f}.ckpt'
+    k: 2
+    mode: min
+
+training:
+  rollout_every: -1

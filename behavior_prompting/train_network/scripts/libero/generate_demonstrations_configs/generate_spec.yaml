@@ -1,0 +1,343 @@
+# Configuration file for generate_demonstrations.py
+# All object-specific override constants and configurations
+
+# Custom pos_threshold for move_to_pose when moving to a grasp pose, keyed by base object name.
+# Use this when the default pos_threshold=0.01 is not precise enough for a particular object.
+grasp_position_precision_override:
+  cream_cheese: 0.004 # we want more precision for cream cheese since it's not very tall so we need to make sure the grasp is really aligned well before we attempt it
+
+# Object grasp configuration: objects that allow single-contact grasp checking
+# Format: {base_object_name: {'allow_single_contact': True}}
+object_grasp_configs:
+  akita_black_bowl:
+    allow_single_contact: true
+
+# Object combinations that should NOT have position variation when placing
+# Format: list of [grasped_base_object_name, placed_on_base_object_name] pairs
+# Both object names are matched by base name (e.g., "akita_black_bowl_1" matches "akita_black_bowl")
+no_position_variation_combinations:
+  - [akita_black_bowl, akita_black_bowl]  # bowl placed on bowl
+  - [akita_black_bowl, glazed_rim_porcelain_ramekin]  # bowl placed on ramekin
+  - [wine_bottle, akita_black_bowl]  # wine bottle placed in bowl
+
+# Manual offsets for specific place locations (applied to z-dimension in world coordinates)
+# Key: location name (e.g., 'wooden_cabinet_1_top_region')
+# Value: z-offset in meters (world coordinates)
+# this is used when we are moving to the place location (move_from_to function); it determines how far above the object we move to
+default_above_place_location_offset: 0  # Default z-offset above place location (world coordinates)
+above_place_location_offsets_world: {
+  akita_black_bowl: 0.1,
+  glazed_rim_porcelain_ramekin: 0.1,
+  main_table_next_to_box_region: 0.1,
+  wooden_cabinet_middle_region: 0.1  # drop cream cheese from 0.1 above the usual height when placing into middle drawer
+}
+
+# Release depth offsets for set-down behavior (applied to z-dimension in world coordinates)
+# Key: location name (e.g., 'wooden_cabinet_1_top_region')
+# Value: z-offset in meters (world coordinates, negative means move down)
+# this is used when we are moving down to place down an object (set_down_object function)
+default_release_depth_offset: -0.1  # Default release depth
+release_depth_place_location_offsets_world: {
+  glazed_rim_porcelain_ramekin: 0,
+  akita_black_bowl: 0,
+  wooden_cabinet_middle_region: 0  # paired with above_place_location_offsets_world entry so cream cheese is released at 0.1 above the usual height (z_offset = 0 - 0.1 + 0.1 = 0, no set_down movement)
+}
+# Additional z offset applied to the release depth based on the grasped object, keyed by base object name.
+# Added on top of the place-location-based release depth offset. Default is 0 if not specified.
+release_depth_grasped_object_offsets_world:
+  cream_cheese: 0.1  # cream cheese is short so we don't need to move as far down to place it
+
+# Custom stage-based offsets (applied in x, y, z in the site's local coordinate frame)
+# List of dictionaries, each with:
+#   - base_split_condition: string - base split name must match
+#   - predicate_conditions: list of predicate strings - all must be satisfied (optional)
+#   - target_conditions: dict with:
+#       - placed_object_name: string - name of object being placed
+#       - place_location: string - name of place location/site
+#   - offset: list of [x, y, z] offset in meters (in site's local coordinate frame)
+# These offsets are transformed from site's local frame to world frame before being applied
+# The first entry where all conditions are satisfied will be used
+place_location_local_offset:
+  - # since the wine bottle is tall, reaching the center of the cabinet is challenging, so we move closer to the robot on one side of the cabinet
+    base_split_condition: libero_goal
+    target_conditions:
+      placed_object_name: wine_bottle  # generic name (matches any instance)
+      place_location: wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    offset: [0.0, 0.0, 0.05]  # third entry is negative global x axis
+  - # the cream cheese is near the place location for in front of the stove, so we shift a little to the right so that we don't keep placing objects on top of the cream cheese
+    base_split_condition: libero_goal
+    target_conditions:
+      place_location: main_table_stove_front_region
+    offset: [0.0, 0.05, 0.0]  # second entry is positive global y axis
+
+# Intermediate quaternion for dynamically computed intermediate poses
+# Format: [w, x, y, z] quaternion
+intermediate_quaternion: [9.99070385e-01, 7.55227871e-04, -3.25384721e-02, 2.82673581e-02]
+
+max_height: # meters
+  libero_spatial: 1.3
+  libero_goal: 1.3
+
+# Overrides for intermediate poses based on complex conditions
+# List of dictionaries, each with:
+#   - base_split_condition: string - base split name must match
+#   - predicate_conditions: list of predicate strings - all must be satisfied
+#   - target_conditions: dict with:
+#       - object_name: string - target object name
+#       - grasp_from: string (optional) - task name for grasp actions
+#   - pos: list of [x, y, z] position
+# The first entry where all conditions are satisfied will be used
+intermediate_pose_overrides:
+  - # move slightly to the right to better grab the wine bottle since it was getting hit when the gripper was coming down after opening the cabinet
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      object_name: wine_bottle  # generic name (matches any instance)
+      grasp_from: put_the_wine_bottle_on_the_rack
+    pos: [-0.24349409, 0.16, 1.1644544]
+  - # move slightly to the right to not run into the cabinet handle when reaching down to grab the cream cheese
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      object_name: cream_cheese  # generic name (matches any instance)
+    pos: [-0.09399663, 0.11222708, 1.1180573]
+  - # move slightly to the right to not run into the cabinet handle when picking up the cream cheese to put in the cabinet
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      placed_object_name: cream_cheese  # generic name (matches any instance)
+      place_location: wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    pos: [-0.06997286, 0.14477614, 1.15130913]
+  - # move up 0.15 in z when moving from cream cheese to the top of the cabinet when middle drawer is open
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_middle_region  # generic name (matches any instance like wooden_cabinet_1_middle_region)
+    from_location: cream_cheese  # only apply when moving away from the cream cheese
+    target_conditions:
+      placed_object_name: cream_cheese  # generic name (matches any instance)
+      place_location:  # list of possible top cabinet locations
+        - wooden_cabinet_top_region
+        - wooden_cabinet_top_side
+    pos_delta: [0, 0, 0.15]  # move up 0.15 in z before computing the intermediate pose
+    skip_variation: true  # pos_delta is relative to current position; variation applied at auto-computed pose
+    auto_compute_after: true  # after this lift, compute a dynamic intermediate pose
+  - # move up 0.1 in z when moving from cream cheese back to the open middle drawer to put cream cheese in
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_middle_region  # generic name (matches any instance like wooden_cabinet_1_middle_region)
+    from_location: cream_cheese  # only apply when moving away from the cream cheese
+    target_conditions:
+      placed_object_name: cream_cheese  # generic name (matches any instance)
+      place_location: wooden_cabinet_middle_region  # generic name (matches any instance like wooden_cabinet_1_middle_region)
+    pos_delta: [0, 0, 0.1]  # move up 0.1 in z before computing the intermediate pose
+    skip_variation: true  # pos_delta is relative to current position; variation applied at auto-computed pose
+    auto_compute_after: true  # after this lift, compute a dynamic intermediate pose
+  - # intermediate pose for transition from opening middle drawer to grasping bowl
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_middle_region  # generic name (matches any instance like wooden_cabinet_1_middle_region)
+    target_conditions:
+      object_name: akita_black_bowl  # generic name (matches any instance)
+    pos: [-0.27132175, 0.15700752, 1.10691656]
+  - # move up 0.1 in z when moving from middle drawer to cream cheese to clear the cabinet edge
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - Open wooden_cabinet_middle_region  # generic name (matches any instance like wooden_cabinet_1_middle_region)
+    from_location: wooden_cabinet_middle_region  # only apply when moving away from the middle drawer
+    target_conditions:
+      object_name: cream_cheese  # generic name (matches any instance)
+    pos_delta: [0, 0, 0.1]  # move up 0.1 in z before computing the intermediate pose
+    skip_variation: true  # pos_delta is relative to current position; variation applied at auto-computed pose
+    auto_compute_after: true  # after this lift, compute a dynamic intermediate pose
+  - # intermediate pose for taking bowl out of top drawer and placing it next to cookie box or on cookies
+    base_split_condition: libero_spatial
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location:  # list of possible place locations
+        - main_table_next_to_box_region
+      initial_location: wooden_cabinet_top_region  # generic name - bowl must have been initialized in the drawer (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [-0.02970144, 0.15088691, 1.1704032]  # first intermediate position
+      - [0.08322929, 0.11736948, 0.9]  # second intermediate position
+  - # intermediate pose for taking bowl from top side of cabinet and placing it on cookies
+    base_split_condition: libero_spatial
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: cookies
+      initial_location: wooden_cabinet_top_side  # generic name - bowl must have been initialized on top side (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [0.03189202, 0.07120832, 1.21727612]  # first intermediate position
+      - [0.08322929, 0.11736948, 0.9]  # second intermediate position
+  - # intermediate pose for taking bowl from top side of cabinet and placing it on table center
+    base_split_condition: libero_spatial
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: main_table_table_center  # generic name - placing on table center
+      initial_location: wooden_cabinet_top_side  # generic name - bowl must have been initialized on top side (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [-0.04902416, 0.06064962, 1.1673308]  # intermediate position
+  - # intermediate pose for taking bowl out of top drawer and placing it on the cookie box
+    base_split_condition: libero_spatial
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: cookies
+      initial_location: wooden_cabinet_top_region  # generic name - bowl must have been initialized in the drawer (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [-0.02970144, 0.15088691, 1.1704032]  # first intermediate position only
+  - # intermediate pose for taking bowl out of top drawer and placing it on the table center
+    base_split_condition: libero_spatial
+    predicate_conditions:
+      - Open wooden_cabinet_top_region  # generic name (matches any instance like wooden_cabinet_1_top_region)
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: main_table_table_center
+      initial_location: wooden_cabinet_top_region  # generic name - bowl must have been initialized in the drawer (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [0.05878848, -0.13686656, 1.19703515]
+      - [-0.1324547, 0.05764259, 1.18865924]  # intermediate position
+  - # intermediate pose for placing bowl from next to cookie box into bowl on stove
+    base_split_condition: libero_spatial
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: akita_black_bowl  # generic name - placing into another bowl (matches any instance)
+      initial_location: main_table_next_to_box_region  # generic name - bowl must have been initialized next to cookie box (matches by base name)
+      place_location_initial_location: flat_stove_cook_region  # generic name - the place_location bowl must be on the stove (matches flat_stove_1_cook_region, etc.)
+    pos:  # list of intermediate positions to visit in sequence
+      - [-0.07637022, 0.02473431, 1.08212961]  # intermediate position
+  - # intermediate pose for placing bowl from next to cookie box onto stove
+    base_split_condition: libero_spatial
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: flat_stove_cook_region  # generic name - placing onto the stove (matches flat_stove_1_cook_region, etc.)
+      initial_location: main_table_next_to_box_region  # generic name - bowl must have been initialized next to cookie box (matches by base name)
+    pos:  # list of intermediate positions to visit in sequence
+      - [-0.07637022, 0.02473431, 1.08212961]  # intermediate position
+  - # intermediate pose after turning on stove before moving to the next action we want to move slightly up so we don't hit the side of the knob
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - TurnOn flat_stove  # generic name (matches any instance like flat_stove_1)
+    from_location: flat_stove  # only apply when moving away from the stove (i.e. after turning it on)
+    pos_delta: [0, 0, 0.1]  # [x, y, z] offset applied to the current robot position
+    skip_variation: true  # pos_delta pose is relative to the stove knob position; variation here causes collisions
+    auto_compute_after: true  # after this custom pose, also compute a dynamic intermediate pose (variation applied there)
+  - # when placing wine bottle on top of cabinet from its starting region, move up first before computing the intermediate pose to avoid hitting objects on the way
+    base_split_condition: libero_goal
+    target_conditions:
+      placed_object_name: wine_bottle  # generic name (matches any instance)
+      place_location: wooden_cabinet_top_side  # generic name (matches any instance like wooden_cabinet_1_top_side)
+      initial_location: main_table_wine_bottle_region  # wine bottle must have started at its default region
+    pos_delta: [0, 0, 0.2]  # move up before heading to intermediate pose
+    skip_variation: true  # pos_delta is a precise lift; variation applied at the auto-computed pose instead
+    auto_compute_after: true  # after this lift, compute a dynamic intermediate pose (variation applied there)
+  - # intermediate pose after placing wine bottle on top of cabinet before moving to the next action; move slightly up so we don't hit the bottle when retreating
+    base_split_condition: libero_goal
+    predicate_conditions:
+      - On wine_bottle wooden_cabinet_top_side  # generic name (matches any instance like wooden_cabinet_1_top_side)
+    from_location: wooden_cabinet_top_side  # only apply when moving away from the cabinet top side
+    pos_delta: [-0.1, 0, 0.1]  # [x, y, z] offset applied to the current robot position
+    skip_variation: true
+    auto_compute_after: true  # after this custom pose, also compute a dynamic intermediate pose (variation applied there)
+  - # intermediate pose for placing bowl from plate to top side of cabinet
+    base_split_condition: libero_goal
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: wooden_cabinet_top_side  # generic name - placing on top side of cabinet (matches wooden_cabinet_1_top_side, etc.)
+      initial_location: plate  # generic name - bowl must have been initialized on a plate (matches plate_1, etc.)
+    pos: [-0.00969815, 0.01142959, 1.19646158]  # intermediate position that is more above the plate rather than between the plate and the cabinet
+  - # intermediate pose for placing bowl from next to cookie box to top side of cabinet
+    base_split_condition: libero_spatial
+    target_conditions:
+      placed_object_name: akita_black_bowl  # generic name (matches any instance like akita_black_bowl_1, akita_black_bowl_2, etc.)
+      place_location: wooden_cabinet_top_side  # generic name - placing on top side of cabinet (matches wooden_cabinet_1_top_side, etc.)
+      initial_location: main_table_next_to_box_region  # generic name - bowl must have been initialized next to cookie box (matches by base name)
+    pos: [0.07528374, -0.02886483, 1.2391499]  # intermediate position
+
+# Variation constants for intermediate pose
+intermediate_pos_variation_range: 0.10  # ±0.10 meters for each position component
+intermediate_rot_variation_degrees: 10.0  # ±10 degrees rotation variation
+
+# Z offset for dynamically computed intermediate pose (above the higher of start/target z)
+intermediate_pose_z_offset: 0.1  # meters
+
+# Pregrasp offset: distance to move backwards from grasp pose along gripper approach direction
+# This creates a pregrasp pose that approaches the grasp at the correct orientation
+pregrasp_offset: 0.05  # meters
+
+# Additional world-z offset applied to the pregrasp pose for specific (object, from_location) combinations.
+# List of dictionaries, each with:
+#   - object_name: string - name of object being grasped (matched by base name)
+#   - from_location: string (optional) - if specified, only applies when coming from this location (matched by base name)
+#   - base_split_condition: string (optional) - if specified, only applies for this split name
+#   - z_offset: float - additional z-offset in meters (world coordinates, positive = higher pregrasp pose)
+# The first matching entry will be used.
+pregrasp_additional_z_offset_overrides:
+  - object_name: cream_cheese
+    from_location: wine_rack_top_region  # moving from wine rack to cream cheese can cause gripper to hit the bowl
+    z_offset: 0.1
+
+# Maximum height for intermediate poses after variation, keyed by base split name
+max_intermediate_pose_height:
+  libero_spatial: 1.286  # meters
+
+# Target position variation for final place location (x and y only, in global coordinates)
+target_pos_variation_range: 0.03  # ±0.03 meters for x and y components
+
+target_pos_variation_range_overrides:
+  cookies: 0.01 # cookie box is small in one dimension, so we just do smaller amounts of variation
+  main_table_next_to_box_region: 0.01
+
+# Rotation gain scaling based on position distance
+# If set, rotation gain is scaled as kp_rot * min(1.0, rot_gain_position_scaling / pos_error_norm)
+# This makes rotation smoother when far away (lower gain) and more responsive when close (higher gain, up to original kp_rot)
+# If None, rotation gain is constant (no scaling)
+# Typical values: 0.01 to 0.05 (smaller = more aggressive scaling, larger = less aggressive)
+rot_gain_position_scaling: 0.02  # meters
+
+# Object fall detection threshold (angle in degrees)
+object_fall_angle_threshold_degrees: 20.0  # degrees
+
+# Objects for which we check the place location's rotation instead of the placed object's rotation
+# List of base object names (e.g., objects placed in bowls should check if the bowl has fallen over)
+# Format: list of base object names (e.g., ["akita_black_bowl"])
+check_place_location_fall_instead_of_placed_object:
+  - akita_black_bowl # when we place into the bowl we want to make sure the bowl doesn't fall over. It's fine if the object in the bowl falls over as long as the bowl itself is stable
+
+# Skip the fall-over check for specific (object, place_location) pairs.
+# Useful when an object is intentionally placed at an angle (e.g. wine bottle on wine rack).
+# Format: dict mapping object base name -> list of place location base names to skip.
+skip_fall_check_when_placed_on:
+  wine_bottle:
+    - wine_rack_top_region
+
+# Additional replay steps after specific stages when replaying from actions_from
+# List of dictionaries, each with:
+#   - base_split_condition: string (optional) - if specified, only matches for this split name.
+#                                               If omitted, matches any split.
+#   - task_name: string (optional) - if specified, only matches when actions_from equals this task name.
+#                                    If omitted, matches any task that replays the given stage.
+#   - stage: string - stage name that triggers additional replay (e.g., "Grasp akita_black_bowl_1")
+#   - additional_steps: int - number of additional steps to replay after the stage's predicate is satisfied
+# These steps are replayed without checking predicates again
+additional_replay_steps_after_stage:
+  # the bowl is sometimes partially under the side of the cabinet, so we replay a few additional steps to ensure we have the proper technique to move it out from under the cabinet
+  - base_split_condition: libero_spatial
+    task_name: pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate
+    stage: "Grasp akita_black_bowl_1"
+    additional_steps: 6
+  # replay additional steps after opening the middle drawer to ensure the drawer opens more fully — applies to any task that replays this open action
+  - base_split_condition: libero_goal
+    stage: "Open wooden_cabinet_1_middle_region"
+    additional_steps: 5
+
+ignore_predicate_check_during_place_movement_for_location: # this is only for the movement above the place location, not the set down movement that comes after
+  - main_table_next_to_box_region # the predicate sometimes passes when we are still holding the object above the location which prevents reaching all the way to the region during place
+ignore_predicate_check_during_set_down_for_location: [] # this is just for the set down movement that comes after the move to place location behavior

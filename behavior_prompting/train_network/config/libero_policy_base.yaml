@@ -1,0 +1,21 @@
+defaults:
+  - policy_base
+  - task: libero_goal
+  
+checkpoint:
+  save_last_ckpt: false
+  save_last_snapshot: false
+  topk:
+    monitor_key: test_mean_score
+    format_str: epoch={epoch:04d}-${.monitor_key}={${.monitor_key}:.3f}.ckpt
+    k: 1
+    mode: max
+
+training:
+  rollout:
+    intermediate_max_tasks: 20
+    intermediate_init_runner_kwargs:
+      n_test: 5
+      n_train: 5
+      n_test_vis: 5
+      n_train_vis: 5

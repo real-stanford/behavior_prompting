@@ -1,0 +1,12 @@
+# Fits within 46GB
+
+defaults:
+  - umi_bimanual_policy_dunet
+  - override task: umi_bimanual_language
+  - _self_
+
+dataloader:
+  batch_size: 34 # TODO: will need to tune this
+
+val_dataloader:
+  batch_size: 34

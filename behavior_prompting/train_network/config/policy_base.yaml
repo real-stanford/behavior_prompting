@@ -1,0 +1,68 @@
+name: policy
+exp_name: "default"
+group_tag: "default"
+task_name: ${task.name}
+
+_target_: behavior_prompting.train_network.workspace.train_policy_workspace.TrainPolicyWorkspace
+
+shape_meta: ${task.shape_meta}
+
+ema:
+  _target_: diffusers.training_utils.EMAModel
+  inv_gamma: 1.0
+  decay: 0.9999
+  min_decay: 0.0
+  power: 0.75
+  update_after_step: 0
+
+logging:
+  project: behavior_prompting
+  resume: False
+  mode: online
+  name: ${now:%Y.%m.%d-%H.%M.%S}_${exp_name}_${name}_${task_name}_${model.name}
+  tags: ["${name}", "${task_name}", "${exp_name}", "${group_tag}", "${model.name}"]
+  id: null
+  group: null
+
+multi_run:
+  run_dir: runs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${exp_name}_${name}_${task_name}_${model.name}
+  wandb_name_base: ${now:%Y.%m.%d-%H.%M.%S}_${exp_name}_${name}_${task_name}_${model.name}
+
+hydra:
+  job:
+    override_dirname: ${name}
+  run:
+    dir: runs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${exp_name}_${name}_${task_name}_${model.name}
+  sweep:
+    dir: runs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${exp_name}_${name}_${task_name}_${model.name}
+    subdir: ${hydra.job.num}
+
+rollout:
+  distribute: true
+
+training:
+  max_train_steps: null
+  max_val_steps: 64
+  sample_size: 64
+  sample_max_tasks: 5
+  seed: 0
+  tqdm_interval_sec: 1.0
+  repeat_dataset_n_times: 1
+  use_cached_normalizer: false
+  override_cached_normalizer: false
+  rollout:
+    enable_expensive_vis_every: 1
+    enable_expensive_vis_last_epoch: true
+    intermediate_max_tasks: null
+    intermediate_init_runner_kwargs: null
+  compilation_plugin:
+    _target_: accelerate.utils.TorchDynamoPlugin
+    backend: inductor
+    mode: default
+    fullgraph: false
+    dynamic: true
+    disable: true
+  group_dataloader_by_task:
+    enabled: false
+    balanced: false
+    log_frequency: false

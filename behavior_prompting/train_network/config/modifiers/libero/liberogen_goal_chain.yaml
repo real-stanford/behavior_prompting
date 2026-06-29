@@ -1,0 +1,15 @@
+# @package _global_
+
+checkpoint:
+  save_train_loss_ckpt_every: 3
+  topk:
+    monitor_key: unseen_test_mean_score
+    format_str: epoch={epoch:04d}-${.monitor_key}={${.monitor_key}:.3f}.ckpt
+    k: 1
+    mode: max
+
+training:
+  num_epochs: 7
+  rollout_every: 1
+  sample_every: 1
+  val_every: 1

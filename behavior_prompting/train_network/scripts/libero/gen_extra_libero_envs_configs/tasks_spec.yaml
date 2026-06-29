@@ -1,0 +1,476 @@
+# Task specification for generating extra LIBERO environments
+# 
+# CHAINING SUPPORT:
+# Objects can define chaining properties to control multi-action task generation:
+#
+#   - max_items_on_top: N - How many items can be placed on/in this object (default 1)
+#     Only relevant for objects with can_place_on or can_place_in operators.
+#
+#   - can_grasp_with_contents: true/false - Can this object be picked up when something is on/in it?
+#     Only relevant for objects that have BOTH can_grasp AND (can_place_on or can_place_in).
+#
+#   - reasonable_next_involves: list of {object, operator} - When chaining after an action on this object,
+#     the next action must match one of these object+operator pairs. Used with reasonable_only: true.
+#
+# Operators can define ordering constraints:
+#   - requires_action_replay: true/false - Must this be the first action? (for open, turn_on which require action replay)
+#
+# The script tracks object state to ensure logical combinations:
+#   - Objects with something on/in them can only be grasped if can_grasp_with_contents=true
+#   - Objects at max_items_on_top capacity cannot receive more items
+#   - Actions requiring action_replay must be first in the chain
+#   - If reasonable_only is true, chained actions must satisfy reasonable_next_involves constraints
+#
+objects:
+  akita_black_bowl:
+    operators:
+      can_grasp: {}
+      can_place_on:
+        prefix_filename_lang_override: in_the
+        prefix_bddl_lang_override: on the
+    object_filename_lang: bowl
+    object_bddl_lang: bowl
+    chaining:
+      can_grasp_with_contents: true
+  wine_bottle:
+    operators:
+      can_grasp: {}
+    object_filename_lang: wine_bottle
+    object_bddl_lang: wine bottle
+  plate:
+    operators:
+      can_place_on: {}
+      can_push:
+        allowed_targets:
+          - main_table_stove_front_region
+    object_filename_lang: plate
+    object_bddl_lang: plate
+  cream_cheese:
+    operators:
+      can_grasp: {}
+      can_place_on: {}
+    object_filename_lang: cream_cheese
+    object_bddl_lang: cream cheese
+    chaining:
+      can_grasp_with_contents: false
+  main_table_plate_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: plate_region
+    object_bddl_lang: plate region
+  main_table_akita_black_bowl_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: bowl_region
+    object_bddl_lang: bowl region
+  main_table_wine_bottle_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: wine_bottle_region
+    object_bddl_lang: wine bottle region
+  main_table_cream_cheese_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: cream_cheese_region
+    object_bddl_lang: cream cheese region
+  main_table_cabinet_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: cabinet_region
+    object_bddl_lang: cabinet region
+  main_table_stove_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: stove_region
+    object_bddl_lang: stove region
+  main_table_wine_rack_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: wine_rack_region
+    object_bddl_lang: wine rack region
+  wine_rack_top_region:
+    operators:
+      can_place_on:
+        allowed_sources:
+          - wine_bottle
+    object_filename_lang: rack
+    object_bddl_lang: rack
+  wooden_cabinet_bottom_region:
+    operators:
+      can_open: {}
+      can_place_in: {}
+    object_filename_lang: bottom_drawer_of_the_cabinet
+    object_bddl_lang: bottom layer of the drawer
+  wooden_cabinet_top_region:
+    operators:
+      can_open: {}
+      can_place_in: {}
+    object_filename_lang: top_drawer
+    object_bddl_lang: top layer of the drawer
+  main_table_stove_front_region:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: in
+        prefix_bddl_lang_override: in
+    object_filename_lang: front_of_the_stove
+    object_bddl_lang: front of the stove
+  flat_stove_cook_region:
+    operators:
+      can_place_on: {}
+    object_filename_lang: stove
+    object_bddl_lang: stove
+  flat_stove:
+    operators:
+      can_turn_on: {}
+    object_filename_lang: stove
+    object_bddl_lang: stove
+    chaining:
+      reasonable_next_involves:
+        - object: flat_stove_cook_region
+          operator: can_place_on
+  wooden_cabinet_top_side:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: "on"
+        prefix_bddl_lang_override: "on the"
+    object_filename_lang: top_of_the_cabinet
+    object_bddl_lang: top of the drawer
+  wooden_cabinet_middle_region:
+    operators:
+      can_open: {}
+      can_place_in: {}
+    object_filename_lang: middle_drawer_of_the_cabinet
+    object_bddl_lang: middle layer of the drawer
+  cookies:
+    operators:
+      can_place_on: {}
+    object_filename_lang: cookie_box
+    object_bddl_lang: cookies box
+  glazed_rim_porcelain_ramekin:
+    operators:
+      can_place_on: {}
+    object_filename_lang: ramekin
+    object_bddl_lang: ramekin
+  main_table_next_to_ramekin_region:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: next_to_the
+        prefix_bddl_lang_override: next to the
+    object_filename_lang: ramekin
+    object_bddl_lang: ramekin
+  main_table_next_to_plate_region:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: next_to_the
+        prefix_bddl_lang_override: next to the
+    object_filename_lang: plate
+    object_bddl_lang: plate
+  main_table_next_to_box_region:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: next_to_the
+        prefix_bddl_lang_override: next to the
+    object_filename_lang: cookie_box
+    object_bddl_lang: cookies box
+  main_table_table_center:
+    operators:
+      can_place_on:
+        initial_location_prefix_filename_lang_override: from
+        initial_location_prefix_bddl_lang_override: from
+        # this overrides just the pick location to be "from" and leaves the place location as "on the"
+    object_filename_lang: table_center
+    object_bddl_lang: table center
+  main_table_between_plate_ramekin_region:
+    operators:
+      can_place_on:
+        prefix_filename_lang_override: between_the
+        prefix_bddl_lang_override: between the
+    object_filename_lang: plate_and_the_ramekin
+    object_bddl_lang: plate and the ramekin
+
+operators:
+  can_grasp:
+    stage_name: Grasp
+    prefix_filename_lang: put_the
+    prefix_bddl_lang: Put the
+    requires_action_replay: false
+  can_place_on:
+    stage_name: Place
+    prefix_filename_lang: on_the
+    prefix_bddl_lang: on the
+    requires_action_replay: false
+  can_open:
+    stage_name: Open
+    prefix_filename_lang: open_the
+    prefix_bddl_lang: Open the
+    requires_action_replay: true
+  can_turn_on:
+    stage_name: Turnon
+    prefix_filename_lang: turn_on_the
+    prefix_bddl_lang: Turn on the
+    requires_action_replay: true
+  can_push:
+    stage_name: Touch
+    prefix_filename_lang: push_the
+    prefix_bddl_lang: Push the
+    requires_action_replay: true
+
+splits:
+  libero_goal:
+    skip_generation_for:
+      # since open operator is not yet supported in the demonstration generation, we skip generation for tasks that contain it in cases where we can't replay the open action which is when we have moved around some of the objects in the environment to different init states that don't match the initial states in the original environment. We do the same for touch operator (used for pushing the plate) since we also don't have support for demonstration generation for that.
+      - in_execution_steps: Open
+        not_in_actions_from_steps: Open
+      - in_execution_steps: Touch
+        not_in_actions_from_steps: Touch
+      # skip any tasks where the wine bottle starts on top of the wine rack because libero doesn't support initializing the wine bottle on the wine rack it just places the wine bottle upright instead of at the appropriate angle
+      - init_state_contains:
+          object: wine_bottle_1
+          location: wine_rack_1_top_region
+      # skip any second-step tasks where the middle drawer starts open because the bowl is initialized in
+      # collision with the open drawer, causing simulation glitches where the bowl gets stuck in the drawer
+      - init_open_contains: wooden_cabinet_1_middle_region
+      # skip any tasks where placing the wine bottle on the rack is the last (second) step because demonstration generation doesn't support placing the wine bottle at the appropriate angle on the rack
+      - action_at_position:
+          position: -1
+          min_chain_length: 2
+          operator: can_place_on
+          source: wine_bottle
+          target: wine_rack_top_region
+    chaining_config:
+      max_chain_length: 2
+      reasonable_only: false
+      source_dirs:
+        - existing # this means that the environment only builds off existing environments, rather than environments coming from new_environments
+      exclude_first_action_types:
+        - In # exclude chains that start with "open drawer and put X inside" (In action); chains starting with just "open drawer" (Open action) are still allowed
+      generate_second_step_tasks: true
+    valid_base_tasks:
+      - open_the_middle_drawer_of_the_cabinet # all the tasks have the objects initialized in the same place so we just pick one random existing environment here
+    views:
+      chain_firststep:
+        allow_chained_tasks: false
+        operators: []
+        match_init_states_from:
+          - open_the_middle_drawer_of_the_cabinet
+      chain_secondstep:
+        allow_chained_tasks: false
+        operators: []
+        source_dirs:
+          - extra
+        only_second_step_from_chain: true
+      chain_selected:
+        allow_chained_tasks: true
+        also_generate_inverse_view: true
+        # Only include chained tasks (2+ goal predicates) in this view
+        # and its inverse; single-step tasks are excluded entirely.
+        only_chained_tasks: true
+        # From the extra dir, still include only chained tasks (exclude single-step new_environments variants)
+        operators:
+          # Put cream cheese on top of cabinet, then put wine bottle in the bowl
+          - - operator: can_place_on
+              source: cream_cheese
+              target: wooden_cabinet_top_side
+            - operator: can_place_on
+              source: wine_bottle
+              target: akita_black_bowl
+          # Push plate to front of stove, then put bowl on plate
+          - - operator: can_push
+              source: plate
+              target: main_table_stove_front_region
+            - operator: can_place_on
+              source: akita_black_bowl
+              target: plate
+          # Put bowl on top of cabinet, then put cream cheese on plate
+          - - operator: can_place_on
+              source: akita_black_bowl
+              target: wooden_cabinet_top_side
+            - operator: can_place_on
+              source: cream_cheese
+              target: plate
+          # Put wine bottle on the rack, then put bowl on top of cabinet
+          - - operator: can_place_on
+              source: wine_bottle
+              target: wine_rack_top_region
+            - operator: can_place_on
+              source: akita_black_bowl
+              target: wooden_cabinet_top_side
+          # Put bowl on plate, then put cream cheese in the bowl
+          - - operator: can_place_on
+              source: akita_black_bowl
+              target: plate
+            - operator: can_place_on
+              source: cream_cheese
+              target: akita_black_bowl
+          # Turn on stove, then put bowl on stove
+          - - operator: can_turn_on
+              target: flat_stove
+            - operator: can_place_on
+              source: akita_black_bowl
+              target: flat_stove_cook_region
+          # Open middle drawer, then put cream cheese on stove
+          - - operator: can_open
+              target: wooden_cabinet_middle_region
+            - operator: can_place_on
+              source: cream_cheese
+              target: flat_stove_cook_region
+          # Put cream cheese on plate, then put bowl on cream cheese
+          - - operator: can_place_on
+              source: cream_cheese
+              target: plate
+            - operator: can_place_on
+              source: akita_black_bowl
+              target: cream_cheese
+          # Put wine bottle in front of stove, then put bowl on stove
+          - - operator: can_place_on
+              source: wine_bottle
+              target: main_table_stove_front_region
+            - operator: can_place_on
+              source: akita_black_bowl
+              target: flat_stove_cook_region
+          # Open top drawer, then put wine bottle on top of the cabinet
+          - - operator: can_open
+              target: wooden_cabinet_top_region
+            - operator: can_place_on
+              source: wine_bottle
+              target: wooden_cabinet_top_side
+    task_overrides:
+      # there are two different grasp strategies for the wine bottle in the original teleop data. We find that certain grasp strategies for the wine bottle are better for certain tasks, so we ensure we use those grasp strategies here.
+      put_the_wine_bottle_on_the_stove:
+        actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+      put_the_wine_bottle_in_front_of_the_stove:
+        actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+      put_the_wine_bottle_in_the_bowl:
+        actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    task_pattern_overrides:
+      - pattern: # whenever we place the wine bottle on top of the cabinet, use the grasp from put_the_wine_bottle_on_the_rack (even though it would seem reasonable to pull grasps from put_the_wine_bottle_on_top_of_the_cabinet) because the grasp strategy from put_the_wine_bottle_on_the_rack 1) makes it easier to then move to another task after for chaining two tasks and 2) results in fewer collisions with the drawers if they are opened
+          grasped_object: wine_bottle
+          place_location: wooden_cabinet_top_side
+        overrides:
+          grasps_from:
+            wine_bottle:
+              task: put_the_wine_bottle_on_the_rack
+  libero_spatial:
+    chaining_config:
+      max_chain_length: 1
+    new_environments:
+      - operators:
+        - type: move # we want environments where the bowl starts on the plate
+          from_object: akita_black_bowl
+          from_location: main_table_next_to_ramekin_region
+          to_location: plate
+          base_tasks:
+            - pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate
+      - operators:
+        - type: move # we want environments where the bowl starts on the plate (need another one where the bowl not on the plate is in a different location)
+          from_object: akita_black_bowl
+          from_location: main_table_next_to_plate_region
+          to_location: plate
+          base_tasks:
+            - pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate
+    views:
+      selected_combinations:
+        allow_chained_tasks: false
+        also_generate_inverse_view: true
+        filters:
+          duplicate_mode: only_relevant_objects
+        operators:
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: flat_stove_cook_region
+            target:
+              - glazed_rim_porcelain_ramekin
+              - [akita_black_bowl, glazed_rim_porcelain_ramekin]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: main_table_table_center
+            target:
+              - cookies
+              - [akita_black_bowl, cookies]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: wooden_cabinet_top_region
+            target:
+              - plate
+              - [akita_black_bowl, plate]
+          - operator: can_place_on # this resulted in two tasks. one where bowl is on top of the cabinet and one where it is not
+            source: akita_black_bowl
+            initial_location: cookies
+            target:
+              - wooden_cabinet_top_side
+              - [akita_black_bowl, wooden_cabinet_top_side]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: wooden_cabinet_top_side
+            target:
+              - main_table_between_plate_ramekin_region
+              - [akita_black_bowl, main_table_between_plate_ramekin_region]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: main_table_next_to_plate_region
+            target:
+              - flat_stove_cook_region
+              - [akita_black_bowl, flat_stove_cook_region]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: plate
+            target:
+              - main_table_table_center
+              - [akita_black_bowl, main_table_table_center]
+          - operator: can_place_on
+            source: akita_black_bowl
+            initial_location: main_table_next_to_box_region
+            target:
+              - akita_black_bowl
+    task_pattern_overrides:
+      - pattern: # the grasp from the action replay that would have happend for this task grabs the bowl on one side, but it's easier to grasp from the other side otherwise the gripper runs into the cabinet so we force it to pull the grasp from pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate.
+          grasped_object: akita_black_bowl
+          initial_location: [plate, main_table_next_to_plate_region]  # matches if bowl starts on plate or next to plate region
+          placed_object: akita_black_bowl
+          place_location: main_table_next_to_box_region
+        overrides:
+          actions_from: null
+          grasps_from:
+            akita_black_bowl:
+              task: pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate
+    object_overrides:
+      grasp_objects: # in libero spatial we only interact with bowls
+        - akita_black_bowl
+      open_objects: []
+      push_objects: []
+      turn_on_objects: []
+      # we handle specific naming differences that libero spatial has for certain objects here
+      object_property_overrides:
+        wooden_cabinet_top_region:
+          object_filename_lang: top_drawer_of_the_wooden_cabinet
+          object_bddl_lang: top layer of the wooden cabinet
+        akita_black_bowl:
+          object_filename_lang: black_bowl
+          object_bddl_lang: akita black bowl
+          # can_place_on:
+          #   allowed_targets:
+          #     - plate
+        wooden_cabinet_top_side:
+          can_place_on:
+            prefix_filename_lang_override: on_the
+            prefix_bddl_lang_override: "on the"
+          object_filename_lang: wooden_cabinet
+          object_bddl_lang: wooden cabinet
+    naming_convention:
+      grasp_prefix_filename: pick_up_the
+      grasp_prefix_bddl: Pick the
+      include_initial_location: true
+      include_target_initial_location_for_objects:
+        - akita_black_bowl
+      place_connector_filename: and_place_it_on_the
+      place_connector_bddl: and place it on the
+      placement_prefix_overrides:
+        main_table_next_to_plate_region:
+          place_connector_filename: and_place_it
+          place_connector_bddl: and place it
+        main_table_between_plate_ramekin_region:
+          place_connector_filename: and_place_it
+          place_connector_bddl: and place it
+        main_table_next_to_box_region:
+          place_connector_filename: and_place_it
+          place_connector_bddl: and place it

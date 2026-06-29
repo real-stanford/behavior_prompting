@@ -1,0 +1,14 @@
+# fits in 24gb
+
+defaults:
+  - libero_policy_dunet_language
+  - model: diffusion_unet
+  - _self_
+
+task:
+  shape_meta:
+    obs:
+      task_language:
+        ignore_by_policy: true
+      goal_image:
+        ignore_by_policy: false

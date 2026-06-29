@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - task
+
+dataloader:
+  batch_size: 112 # fits in 48GB
+
+training:
+  num_epochs: 110
+  group_dataloader_by_task:
+    balanced: true # make sure to balance out the task types to hopefully alleviate any bias one task has for another
+
+checkpoint:
+  save_train_loss_ckpt_every: 2

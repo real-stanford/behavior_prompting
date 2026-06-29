@@ -1,0 +1,10 @@
+[submodule "deps/icrt"]
+	path = deps/icrt
+	url = https://github.com/Max-Fu/icrt.git
+[submodule "deps/LIBERO"]
+	path = deps/LIBERO
+	url = https://github.com/Lifelong-Robot-Learning/LIBERO.git
+[submodule "deps/real-env"]
+	path = deps/real-env
+	url = https://github.com/real-stanford/real-env
+	branch = behavior-prompting-policy

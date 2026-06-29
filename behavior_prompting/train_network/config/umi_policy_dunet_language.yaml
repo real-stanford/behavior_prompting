@@ -1,0 +1,8 @@
+# fits in 24gb
+
+defaults:
+  - umi_policy_dunet
+  - override task: umi_language
+  - _self_
+
+# TODO: might need to drop the batch size now that we are finetuning the language model

@@ -1,0 +1,134 @@
+name: draw
+
+obs_horizon: 2
+action_horizon: 16
+
+eval_dataset_path: null # optional, dataset of tasks to use only for env runner evaluation
+eval_rollout_only_task_names: null # for selecting a subset of eval dataset tasks to use for rollout
+eval_rollout_max_tasks: null # select the first n tasks from the eval dataset to use for rollout
+train_rollout_only_task_names: null # for selecting a subset of train dataset tasks to use for rollout
+train_rollout_max_tasks: 10 # select the first n tasks from the train dataset to use for rollout
+
+live_demo: false # if true, then rather than using the provided train and eval datasets, we will collect a demo from the user and use that as the eval dataset. For use in rollout mode.
+
+shape_meta: &shape_meta
+  image_resolution: 224
+  prompt_sequence_length: 800 # 800 steps at 10Hz is 80 seconds; this needs to be at least twice as long as the longest demonstration in the dataset (since we need to fit entire prompt + entire rollout)
+  sequence_prompting_min_steps_per_task: 1000
+  max_prompt_full_demos: 1
+  prompt_chunk_n_actions: 10 # 10 steps at 10Hz is 1 second
+  pad_end_prompt_actions: no # no (default), zeros, or repeat
+  max_sequence_length: 512 # longest demonstration in the drawing dataset
+  use_prompting: false
+  prompt_sample_mode: pair
+  action:
+    horizon: ${task.action_horizon}
+    down_sample_steps: 1
+    type: low_dim
+    shape: [3]  # x, y, pen_down
+    components:
+      - type: pos
+        size: 2
+      - type: pen_down
+        size: 1
+  obs:
+    image:
+      horizon: ${task.obs_horizon}
+      down_sample_steps: 1
+      shape: [3, 224, 224]
+      type: rgb
+      prompt_type: observation
+      include_in_prompt_current_obs: true
+    agent_pos:
+      shape: [2]
+      type: low_dim
+      horizon: ${task.obs_horizon}
+      down_sample_steps: 1
+      prompt_type: proprioception
+      include_in_prompt_current_obs: true
+    pen_down:
+      shape: [1]
+      type: low_dim
+      horizon: ${task.obs_horizon}
+      down_sample_steps: 1
+      prompt_type: proprioception
+      include_in_prompt_current_obs: true
+    goal_image:
+      key: image
+      share_rgb_model: image
+      horizon: 1
+      shape: [3, 224, 224]
+      type: rgb
+      in_replay_buffer: false
+      ignore_by_policy: false
+      prompt_type: ignore
+      include_in_prompt_current_obs: false
+
+env_runner:
+  _target_: behavior_prompting.train_network.env_runner.draw_runner.DrawRunner
+  crf: 22
+  fps: 10
+  max_steps: 400
+  n_test: 22
+  n_test_vis: 1
+  n_train: 10
+  n_train_vis: 1
+  test_start_seed: 10000
+  tqdm_interval_sec: 1.0
+  shape_meta: ${shape_meta}
+  boundary_angle: null
+  set_boundary_angle_from_task_name: false
+  exec_action_horizon: 12
+  vis_prompt: false
+  vis_attention_map: true
+  attention_map_version: v2
+  vis_goal_image: false
+  vis_env_index: 0
+  overlay_action_cross: true
+  overlay_reward: true
+  overlay_target_drawing: true
+  render_cache_size: null
+  save_attention_weights: false
+  save_canvas_step: null
+  restore_canvas_step: null
+
+eval_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: CenterCrop
+      ratio: 0.95
+    - _target_: torchvision.transforms.Resize
+      size: [224, 224]
+
+train_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: RandomCrop
+      ratio: 0.95
+    - _target_: torchvision.transforms.Resize
+      size: [224, 224]
+    - _target_: torchvision.transforms.ColorJitter
+      brightness: 0.3
+      contrast: 0.4
+      saturation: 0.5
+      hue: 0.08
+
+dataset:
+  _target_: behavior_prompting.train_network.dataset.draw_image_dataset.DrawImageDataset
+  dataset_path: null
+  shape_meta: ${shape_meta}
+  seed: 42
+  val_ratio: 0.1
+  sample_type: task
+  max_segments: -1
+  action_padding: true 
+  only_task_names: null # for selecting a subset of tasks to use for training
+  max_tasks: null # select the first n tasks from the dataset to use for training
+  num_training_demos_per_task: null
+  receding_obs_augmentation_enabled: false
+  receding_obs_augmentation_probability: 0.2
+  receding_obs_augmentation_min_shapes: 1
+  receding_obs_augmentation_max_shapes: 3
+  receding_obs_augmentation_debug: false

@@ -1,0 +1,10 @@
+defaults:
+  - diffusion_unet_base
+  - obs_encoder: pair_prompt_encoder
+
+name: prompt_diffusion_unet
+
+obs_encoder:
+  flatten_output: True # since UNet takes in a feature not tokens
+  n_emb: 768
+  p_drop_attn: 0.1

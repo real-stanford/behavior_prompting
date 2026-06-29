@@ -1,0 +1,16 @@
+defaults:
+  - policy_base
+  - task: draw
+
+checkpoint:
+  save_last_ckpt: false
+  save_last_snapshot: false
+  topk:
+    monitor_key: eval_test_mean_score
+    format_str: epoch={epoch:04d}-${.monitor_key}={${.monitor_key}:.3f}.ckpt
+    k: 1
+    mode: max
+
+training:
+  rollout:
+    intermediate_max_tasks: 20

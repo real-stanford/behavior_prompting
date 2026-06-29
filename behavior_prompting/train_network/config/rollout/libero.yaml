@@ -1,0 +1,12 @@
+# @package _global_
+
+# to run this you should set config name to one of the libero policy configs like:
+# python train.py --config-name=libero_policy_dunet_language +rollout=libero
+
+defaults:
+  - base
+  - _self_
+
+task:
+  env_runner:
+    replay_dataset_action: ${...rollout.replay_dataset_action}

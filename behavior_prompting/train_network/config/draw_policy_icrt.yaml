@@ -1,0 +1,54 @@
+# fits in 98gb
+
+defaults:
+  - draw_policy_base
+  - model: icrt
+  - _self_
+
+task:
+  shape_meta:
+    use_prompting: true
+    prompt_sample_mode: sequence
+    obs:
+      goal_image:
+        ignore_by_policy: true
+  dataset:
+    val_ratio: 0.3 # need a higher validation ratio with icrt since it combines multiple demos into full sequence that is sampled during evaluation so we need enough val demos to fill out a full sequence
+  env_runner:
+    exec_action_horizon: 10 # requirement: exec_action_horizon % prompt_chunk_n_actions == 0
+
+dataloader:
+  batch_size: 14
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: true
+
+val_dataloader:
+  batch_size: 8
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+
+optimizer:
+  lr: 3.0e-5
+  weight_decay: 1.0e-6
+  betas: [0.95, 0.999]
+
+checkpoint:
+  save_train_loss_ckpt_every: 5
+
+training:
+  gradient_accumulate_every: 2
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  max_train_steps: 2500 # we find that the sampler creates a huge number of samples so we need to limit the number of steps per epoch
+  num_epochs: 18
+  rollout_every: 3
+  sample_every: 5
+  use_ema: true
+  freeze_encoder: False
+  val_every: 5
+  mixed_precision: 'bf16'
+  clip_grad_norm: 1.5

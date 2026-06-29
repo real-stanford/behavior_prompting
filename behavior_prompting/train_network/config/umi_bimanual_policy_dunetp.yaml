@@ -1,0 +1,12 @@
+# Fits within 46GB
+
+defaults:
+  - umi_policy_dunetp
+  - override task: umi_bimanual_prompt
+  - _self_
+
+dataloader:
+  batch_size: 32
+
+val_dataloader:
+  batch_size: 32

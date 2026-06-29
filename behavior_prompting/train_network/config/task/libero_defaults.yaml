@@ -1,0 +1,163 @@
+low_dim_obs_horizon: 2
+img_obs_horizon: 2
+action_horizon: 16
+include_file_filters: [] # if [] then include all dataset files, otherwise specify the names of the file without the hdf5 extensions such as `KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo`. If you specify certain file filters, then you must specify a dataset.name_suffix to give an identifier for this partial dataset. This setting also impacts which environments are loaded in the environment runner
+unseen_include_file_filters: []
+unseen_dataset_splits: []
+train_rollout_max_tasks: null # Maximum number of seen tasks to evaluate on. If null, evaluates on all tasks.
+unseen_rollout_max_tasks: null # Maximum number of unseen tasks to evaluate on. If null, evaluates on all tasks.
+
+shape_meta: &shape_meta
+  image_resolution: 224
+  prompt_sequence_length: 768
+  max_prompt_full_demos: 1
+  prompt_chunk_n_actions: 20 # the dataset is at 20Hz. we chunk 20 steps (20Hz / 20 steps = 1Hz)
+  pad_end_prompt_actions: zeros # rather than trim the end of the prompt (trimming out the last image that doesn't have a corresponding full chunk of actions) we pad that chunk with zeros to ensure we can keep that last image. This helps because often the object place location is near the end of the prompt and we don't want that that image to be trimmed out.
+  max_sequence_length: 1000
+  use_prompting: false
+  prompt_sample_mode: pair
+  action:
+    horizon: ${task.action_horizon}
+    down_sample_steps: 1
+    type: low_dim
+    shape: [10]
+    rep: delta # delta or absolute (if you generate a version with absolute actions)
+    components:
+      - type: pos
+        size: 3
+      - type: rot
+        size: 6
+      - type: gripper_open_close
+        size: 1
+  obs:
+    agentview_rgb: # `agentview_image` in simulator
+      horizon: ${task.img_obs_horizon}
+      down_sample_steps: 1
+      shape: [3, 224, 224]
+      type: rgb
+      ignore_by_policy: false
+      prompt_type: observation
+      include_in_prompt_current_obs: true
+    eye_in_hand_rgb: # `robot0_eye_in_hand_image` in simulator
+      horizon: ${task.img_obs_horizon}
+      down_sample_steps: 1
+      shape: [3, 224, 224]
+      type: rgb
+      ignore_by_policy: false
+      prompt_type: observation
+      include_in_prompt_current_obs: true
+    ee_pos: # `robot0_eef_pos` in simulator
+      shape: [3]
+      type: low_dim
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: 1
+      ignore_by_policy: false
+      prompt_type: proprioception
+      include_in_prompt_current_obs: true
+    ee_ori: # in axis angle format in dataset, but converted into rot6d format before input to policy. Corresponds to `robot0_eef_quat` in simulator which is provided in quaternion xyzw format
+      shape: [6]
+      type: low_dim
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: 1
+      ignore_by_policy: false
+      prompt_type: proprioception
+      include_in_prompt_current_obs: true
+    gripper_states: # (entries of form [x, -y], which are the positions of the fingers; `robot0_gripper_qpos` in simulator
+      shape: [2]
+      type: low_dim
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: 1
+      ignore_by_policy: false
+      prompt_type: proprioception
+      include_in_prompt_current_obs: true
+    task_language:
+      shape: [77] # CLIP token sequence length (max_length)
+      type: low_dim
+      horizon: 1
+      is_language: true
+      in_replay_buffer: false
+      prompt_type: ignore
+      repeat_n_times: 8 # repeating language embedding empirically helps the policy pay more attention to the task description
+      ignore_by_policy: true # by default ignored, specific configs will enable this if used
+    goal_image:
+      key: agentview_rgb
+      share_rgb_model: agentview_rgb
+      horizon: 1
+      down_sample_steps: 1
+      shape: [3, 224, 224]
+      type: rgb
+      in_replay_buffer: false
+      ignore_by_policy: true # by default ignored, specific configs will enable this if used
+      prompt_type: ignore
+      include_in_prompt_current_obs: false
+
+env_runner:
+  _target_: behavior_prompting.train_network.env_runner.libero_image_runner.LiberoImageRunner
+  dataset_splits: ${task.dataset_splits}
+  text_encoder_model_name: ${oc.select:model.obs_encoder.text_encoder_model_name,null}
+  cache_dir: cache/libero/rollout_cache
+  crf: 22
+  fps: 10
+  n_envs: 10
+  n_test: 50 # matches the number of init states provided from the benchmark
+  n_test_vis: 10
+  n_train: 10
+  n_train_vis: 10
+  render_obs_key: [agentview_image, robot0_eye_in_hand_image]
+  tqdm_interval_sec: 1.0
+  shape_meta: ${shape_meta}
+  include_file_filters: ${..include_file_filters}
+  unseen_include_file_filters: ${task.unseen_include_file_filters}
+  unseen_dataset_splits: ${task.unseen_dataset_splits}
+  exec_action_horizon: 12 # for executing just part of the prediction action horizon
+  vis_prompt: false
+  vis_actions_rollout: false
+  vis_proprio_rollout: false
+  vis_trajectory_video: false
+  replay_dataset_action: false # if you want to use the action from the replay dataset, otherwise it will use the action from the policy network
+  vis_attention_map: true
+  vis_env_index: 0
+  attention_map_cmap: GnBu # Colormap for attention visualization (e.g., "GnBu", "viridis", "plasma", "inferno")
+  save_attention_weights: false # If true, save attention weight artifacts (heatmaps, rollout frames, prompt visualization)
+  scale_attention_weights: true # If true, scale attention weights to [0, 1] range to use full colormap in visualizations
+  use_proportion_of_colormap: 0.6 # Proportion of colormap range to use (0.0 to 1.0). If set, only uses this proportion from the bottom, clipping the high end. If null, uses full range.
+  eval_seen: true
+  eval_unseen: true
+  unseen_max_n: 50 # matches the number of init states provided from the benchmark
+  render_size: null
+
+eval_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: CenterCrop
+      ratio: 0.95
+
+train_image_transforms:
+  _target_: behavior_prompting.train_network.common.augmentation.ImageAugmentation
+  shape_meta: ${shape_meta}
+  transforms:
+    - type: RandomCrop
+      ratio: 0.95
+    - _target_: torchvision.transforms.ColorJitter
+      brightness: 0.3
+      contrast: 0.4
+      saturation: 0.5
+      hue: 0.08
+
+dataset:
+  _target_: behavior_prompting.train_network.dataset.libero_replay_image_dataset.LiberoReplayImageDataset
+  shape_meta: ${shape_meta}
+  dataset_splits: ${task.dataset_splits}
+  dataset_name: ${task.name}
+  action_padding: true
+  text_encoder_model_name: ${oc.select:model.obs_encoder.text_encoder_model_name,null}
+  seed: 42
+  use_cache: true
+  overwrite_cache: false
+  cache_dir: cache/libero/train_cache
+  val_ratio: 0.10
+  sample_type: task
+  max_segments: -1 # max segments in sampler
+  name_suffix: ""
+  include_file_filters: ${..include_file_filters}

@@ -1,0 +1,13 @@
+# @package _global_
+
+# use this as a base for rollout of policies or action replay
+
+_target_: behavior_prompting.train_network.workspace.rollout_policy_workspace.RolloutPolicyWorkspace
+
+rollout:
+  checkpoint_path: null # if you use checkpointing method from normal model training
+  policy_only_checkpoint_path: null # if you directly save the state dict of a policy network manually
+  replay_dataset_action: false # if you want to use the action from the replay dataset, otherwise it will use the action from the policy network
+  enable_expensive_vis: true # if you want to enable expensive rollout visualization
+
+name: rollout_policy

@@ -1,0 +1,10 @@
+# @package _global_
+
+checkpoint:
+  save_train_loss_ckpt_every: 5
+
+training:
+  num_epochs: 15
+  rollout_every: 3
+  sample_every: 3
+  val_every: 3

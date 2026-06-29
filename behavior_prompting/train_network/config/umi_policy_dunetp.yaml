@@ -1,0 +1,53 @@
+# fits in 46gb
+
+defaults:
+  - umi_policy_base
+  - model: prompt_diffusion_unet
+  - override task: umi_prompt
+  - _self_
+
+task:
+  shape_meta:
+    prompt_sample_mode: pair
+
+dataloader:
+  batch_size: 70
+  num_workers: 8
+  persistent_workers: true
+  pin_memory: true
+  shuffle: true
+
+val_dataloader:
+  batch_size: 16
+  num_workers: 4
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false
+
+optimizer:
+  lr: 5e-5
+  weight_decay: 1.0e-6
+  betas: [0.95, 0.999]
+
+rollout:
+  distribute: false # umi env runner currently only supports non-distributed rollout since the tasks aren't distributed yet
+
+checkpoint:
+  save_train_loss_ckpt_every: 10
+
+training:
+  gradient_accumulate_every: 1
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  num_epochs: 140
+  sample_every: 10
+  use_ema: true
+  freeze_encoder: False
+  val_every: 10
+  rollout_every: 10 # this produces the attention visualizations
+  mixed_precision: 'bf16'
+  clip_grad_norm: 0.5
+  group_dataloader_by_task:
+    enabled: true
+    balanced: false
+    log_frequency: false

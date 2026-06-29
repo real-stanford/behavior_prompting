@@ -1,0 +1,18 @@
+defaults:
+  - libero_defaults
+
+name: liberogen_goal_chain
+dataset_splits:
+  - libero_goal_chain_firststep_view
+  - libero_goal_chain_secondstep_view
+  - libero_goal_chain_selected_inverse_view
+
+unseen_dataset_splits:
+  - libero_goal_chain_selected_view
+
+checkpoint:
+  topk:
+    monitor_key: unseen_test_mean_score
+
+env_runner:
+  max_steps: 550 # TODO: maybe need to increase this given we have chained tasks?

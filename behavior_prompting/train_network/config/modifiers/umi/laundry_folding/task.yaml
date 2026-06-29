@@ -1,0 +1,89 @@
+# @package _global_
+
+task:
+  # we found the wrong task error correction data only comes into effect if we have a single frame of history in the policy
+  img_obs_horizon: 1
+  low_dim_obs_horizon: 1 # technically we have dummy step in the rel eef pos and orientation for the within gripper pose history; thus, this really means we have no within gripper pose history, but we still have low dim for the gripper width and the inter-gripper proproceptive items
+
+  shape_meta:
+    obs:
+      camera_left_main_rgb:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      camera_right_main_rgb:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      camera_left_ultrawide_rgb:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: true
+        prompt_type: observation
+      camera_right_ultrawide_rgb:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: true
+        prompt_type: observation
+      gripper_left_eef_pos:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_pos:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_left_eef_rot_axis_angle:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_rot_axis_angle:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_left_gripper_width:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: true
+        prompt_type: proprioception
+      gripper_right_gripper_width:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: true
+        prompt_type: proprioception
+      gripper_left_eef_rot_axis_angle_wrt_start:
+        ignore_by_policy: true
+        include_in_receding_obs: false
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_rot_axis_angle_wrt_start:
+        ignore_by_policy: true
+        include_in_receding_obs: false
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_left_eef_pos_wrt_gripper_right:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_pos_wrt_gripper_left:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_left_eef_rot_axis_angle_wrt_gripper_right:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_rot_axis_angle_wrt_gripper_left:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false
+        prompt_type: ignore

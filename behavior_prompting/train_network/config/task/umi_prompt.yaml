@@ -1,0 +1,23 @@
+defaults:
+  - umi
+
+name: umi_prompt
+
+shape_meta: &shape_meta
+  use_prompting: true
+
+dataset:
+  sample_type: task
+
+env_runner:
+  _target_: behavior_prompting.train_network.env_runner.umi_prompting_runner.UmiPromptingRunner
+  shape_meta: ${shape_meta}
+  max_steps: 800
+  tqdm_interval_sec: 1.0
+  exec_action_horizon: 12
+  vis_attention_map: true
+  attention_map_version: v2
+  save_attention_weights: false
+  vis_prompt: false
+  pose_repr: ${task.pose_repr}
+  cache_dir: null

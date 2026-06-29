@@ -1,0 +1,13 @@
+# @package _global_
+
+defaults:
+  - task
+
+dataloader:
+  batch_size: 72 # fits in 48GB
+
+training:
+  num_epochs: 75
+
+checkpoint:
+  save_train_loss_ckpt_every: 2

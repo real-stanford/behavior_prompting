@@ -1,0 +1,41 @@
+base_split_name: libero_goal
+tasks:
+  open_the_middle_drawer_of_the_cabinet:
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+  open_the_top_drawer_and_put_the_bowl_inside:
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_region
+  push_the_plate_to_the_front_of_the_stove:
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+  put_the_bowl_on_the_plate:
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+  put_the_bowl_on_the_stove:
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+  put_the_bowl_on_top_of_the_cabinet:
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+  put_the_cream_cheese_in_the_bowl:
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+  put_the_wine_bottle_on_the_rack:
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+  put_the_wine_bottle_on_top_of_the_cabinet:
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+  turn_on_the_stove:
+    execution_steps:
+    - Turnon flat_stove_1

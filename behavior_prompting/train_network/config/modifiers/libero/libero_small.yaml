@@ -1,0 +1,11 @@
+# @package _global_
+# use when training on libero splits that have 10 tasks (libero_10, libero_object, libero_spatial)
+
+checkpoint:
+  save_train_loss_ckpt_every: 10
+
+training:
+  num_epochs: 100
+  rollout_every: 15
+  sample_every: 10
+  val_every: 10

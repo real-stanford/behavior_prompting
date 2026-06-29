@@ -1,0 +1,15 @@
+# @package _global_
+# fits in 98gb
+
+task:
+  shape_meta:
+    prompt_chunk_n_actions: 1
+
+  env_runner:
+    n_train: 2 # reduce to help fit evaluation in GPU memory
+
+dataloader:
+  batch_size: 1
+
+training:
+  gradient_accumulate_every: 8

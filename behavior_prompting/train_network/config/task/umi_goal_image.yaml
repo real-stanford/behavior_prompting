@@ -1,0 +1,18 @@
+defaults: 
+  - umi
+
+name: umi_goal_image
+
+shape_meta: &shape_meta
+  obs:
+    goal_image:
+      key: camera_right_main_rgb
+      share_rgb_model: camera_right_main_rgb
+      horizon: 1
+      shape: [3, 224, 224]
+      type: rgb
+      in_replay_buffer: false
+      prompt_type: ignore
+
+dataset:
+  sample_type: task

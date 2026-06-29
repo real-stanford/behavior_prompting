@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"name": "behavior_prompting",
+			"path": ".."
+		},
+		{
+			"name": "real-env",
+			"path": "../deps/real-env"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "behavior_prompting",
+		"files.watcherExclude": {
+			"**/data/**": true,
+			"**/umi_data/**": true,
+			"**/wandb/**": true,
+			"**/deps/icrt/**": true,
+			"**/deps/LIBERO/**": true,
+			"**/datasets/**": true
+		},
+		"python.analysis.extraPaths": [
+			"deps/icrt",
+		],
+		"python.analysis.exclude": [
+			"**/data",
+			"**/umi_data",
+			"**/wandb",
+			"**/deps/icrt",
+			"**/deps/LIBERO",
+			"**/datasets"
+		],
+	}
+}

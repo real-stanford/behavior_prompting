@@ -1,0 +1,42 @@
+defaults:
+  - diffusion_transformer_base
+
+name: diffusion_transformer
+
+obs_encoder:
+  _target_: behavior_prompting.train_network.model.vision.transformer_obs_encoder.TransformerObsEncoder
+  shape_meta: ${shape_meta}
+  global_pool: ''
+  n_emb: ${..n_emb}
+
+  ##### from scratch #####
+  # model_name: 'vit_base_patch16_224'
+  # model_name: 'resnet34'
+  # model_name: 'vit_tiny_patch16_224'
+  # model_name: 'efficientnet_b0'
+  # model_name: 'efficientnet_b3'
+  # pretrained: False
+  # frozen: False
+
+  ##### from scratch #####
+  # model_name: 'resnet34.a1_in1k'
+  model_name: 'vit_base_patch16_clip_224.openai'
+  # model_name: 'convnext_base.clip_laion2b_augreg_ft_in12k'
+  pretrained: True
+  frozen: False
+
+  # 'cls' or 'avg' or 'max' or 'soft_attention' or 'spatial_embedding' or 'transformer' or 'attention_pool_2d'
+  feature_aggregation: null
+
+  # it only works for resnet. 32 (7x7) or 16 (14x14)
+  downsample_ratio: 32
+
+  train_image_transforms: ${...task.train_image_transforms}
+  eval_image_transforms: ${...task.eval_image_transforms}
+
+  use_group_norm: True
+  share_rgb_model: False
+  use_vision_norm: True
+  concat_time_dimension: True
+  pretrained_lr_scale: 0.1
+  text_encoder_model_name: "openai/clip-vit-base-patch16"

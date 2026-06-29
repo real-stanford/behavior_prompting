@@ -1,0 +1,9 @@
+defaults:
+  - libero_defaults
+
+name: libero_spatial
+dataset_splits:
+  - libero_spatial
+
+env_runner:
+  max_steps: 250  # longest training demo has 193 steps

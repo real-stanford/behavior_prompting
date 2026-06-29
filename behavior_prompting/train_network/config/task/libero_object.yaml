@@ -1,0 +1,9 @@
+defaults:
+  - libero_defaults
+
+name: libero_object
+dataset_splits:
+  - libero_object
+
+env_runner:
+  max_steps: 300  # longest training demo has 254 steps

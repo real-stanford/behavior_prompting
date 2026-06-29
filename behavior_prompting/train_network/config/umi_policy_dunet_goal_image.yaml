@@ -1,0 +1,12 @@
+# fits in 24gb
+
+defaults:
+  - umi_policy_dunet
+  - override task: umi_goal_image
+  - _self_
+
+dataloader:
+  batch_size: 28
+
+val_dataloader:
+  batch_size: 28

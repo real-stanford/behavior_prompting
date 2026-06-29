@@ -1,0 +1,37 @@
+# @package _global_
+
+task:
+  shape_meta:
+    obs:
+      camera_right_main_rgb:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: true
+        prompt_type: observation
+      camera_right_ultrawide_rgb:
+        ignore_by_policy: true # since the drawing is pretty small and still visible in the main camera, it's better to just not include this wider range view
+        include_in_receding_obs: false
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_pos:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false # since it's a relative position history it's not super useful for the prompt lookup
+        prompt_type: ignore # not really useful again since it's relative
+      gripper_right_eef_rot_axis_angle:
+        ignore_by_policy: false
+        include_in_receding_obs: true
+        include_in_prompt_current_obs: false # same reason as for gripper_right_eef_pos
+        prompt_type: ignore # same reason as for gripper_right_eef_pos
+      gripper_right_gripper_width:
+        ignore_by_policy: true # drawing task always has gripper width 0
+        include_in_receding_obs: false
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+      gripper_right_eef_rot_axis_angle_wrt_start:
+        ignore_by_policy: true # this isn't helpful for drawing task
+        include_in_receding_obs: false
+        include_in_prompt_current_obs: false
+        prompt_type: ignore
+  dataset:
+    val_ratio: 0.0 # we use no validation to 1) maximize the amount of training data we have and 2) for goal image policies there might be only one demonstration for a particular task that has a valid goal image and we do not want that demonstration ending up in the validation set since that would leave no valid goal images in the training set

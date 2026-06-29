@@ -1,0 +1,5 @@
+defaults:
+  - diffusion_transformer_base
+  - obs_encoder: pair_prompt_encoder
+
+name: prompt_diffusion_transformer

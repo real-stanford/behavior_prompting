@@ -1,0 +1,29 @@
+_target_: behavior_prompting.train_network.policy.diffusion_unet_policy.DiffusionUnetPolicy
+name: diffusion_unet_base
+
+shape_meta: ${shape_meta}
+
+noise_scheduler:
+  _target_: diffusers.DDIMScheduler
+  num_train_timesteps: 50
+  beta_start: 0.0001
+  beta_end: 0.02
+  # beta_schedule is important
+  # this is the best we found
+  beta_schedule: squaredcos_cap_v2
+  clip_sample: True
+  set_alpha_to_one: True
+  steps_offset: 0
+  prediction_type: epsilon # or sample
+
+num_inference_steps: 16
+obs_as_global_cond: True
+diffusion_step_embed_dim: 128
+down_dims: [256,512,1024]
+kernel_size: 5
+n_groups: 8
+cond_predict_scale: True
+input_pertub: 0.1 # reference: https://github.com/forever208/DDPM-IP
+# train multiple diffusion steps per obs encoder forward pass
+# doing this too much will cause instability!
+train_diffusion_n_samples: 1

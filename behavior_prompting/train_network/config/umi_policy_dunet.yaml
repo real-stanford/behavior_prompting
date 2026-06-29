@@ -1,0 +1,44 @@
+# fits in 24gb
+
+defaults:
+  - umi_policy_base
+  - model: diffusion_unet
+  - _self_
+
+dataloader:
+  batch_size: 32
+  num_workers: 8
+  shuffle: True
+  pin_memory: True
+  persistent_workers: True
+  drop_last: True
+
+val_dataloader:
+  batch_size: 32
+  num_workers: 8
+  shuffle: True # TODO: think about whether this should be true everywhere (because we limit the number of total val steps)
+  pin_memory: True
+  persistent_workers: False
+  drop_last: True
+
+optimizer:
+  lr: 7.5e-5
+  betas: [0.95, 0.999]
+  eps: 1.0e-8
+  weight_decay: 1.0e-6
+
+checkpoint:
+  save_train_loss_ckpt_every: 10
+
+training:
+  lr_scheduler: cosine
+  lr_warmup_proportion: 0.05
+  num_epochs: 120
+  gradient_accumulate_every: 1
+  use_ema: True
+  freeze_encoder: False
+  val_every: 10
+  sample_every: 10
+  tqdm_interval_sec: 1.0
+  mixed_precision: 'no'
+  clip_grad_norm: 0.5

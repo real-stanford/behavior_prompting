@@ -1,0 +1,8 @@
+# @package _global_
+
+# to run this you should set config name to one of the draw policy configs like:
+# python train.py --config-name=draw_policy_dunet_goal_image +rollout=draw
+
+defaults:
+  - base
+  - _self_

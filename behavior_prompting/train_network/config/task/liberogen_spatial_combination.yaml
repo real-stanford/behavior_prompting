@@ -1,0 +1,16 @@
+defaults:
+  - libero_defaults
+
+name: liberogen_spatial_combination
+dataset_splits:
+  - libero_spatial_selected_combinations_inverse_view # we see how to do everything in libero spatial except for a selected combinations of pick and place locations
+
+unseen_dataset_splits:
+  - libero_spatial_selected_combinations_view # now we try to do the selected combinations of pick and place locations in libero spatial that we didn't see during training
+
+checkpoint:
+  topk:
+    monitor_key: unseen_test_mean_score
+
+env_runner:
+  max_steps: 550

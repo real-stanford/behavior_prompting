@@ -1,0 +1,133 @@
+defaults:
+  - umi
+  - _self_
+
+name: umi_bimanual
+
+shape_meta:
+  action:
+    shape: [20] # 2 robots x 10 (3 pos + 6 rot6d + 1 gripper)
+    components:
+      - type: left_pos
+        size: 3
+      - type: left_rot
+        size: 6
+      - type: left_gripper_width
+        size: 1
+      - type: right_pos
+        size: 3
+      - type: right_rot
+        size: 6
+      - type: right_gripper_width
+        size: 1
+  obs:
+    # We inherit all the right side config from the base umi_single_task config, and then add the left side obs keys here as well as the cross-arm relative pose keys
+    camera_left_main_rgb:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: rgb
+      ignore_by_policy: false
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: observation
+      share_rgb_model: camera_right_main_rgb
+    camera_left_ultrawide_rgb:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon}
+      down_sample_steps: ${task.ultrawide_down_sample_steps}
+      type: rgb
+      ignore_by_policy: false
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: observation
+      share_rgb_model: camera_right_ultrawide_rgb
+    gripper_left_eef_pos:
+      shape: [3]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+      sampler_prompt_type: proprioception # we need this to compute prompt actions even if the policy ignores it
+    gripper_left_eef_rot_axis_angle:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      rotation_rep: rotation_6d
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+      sampler_prompt_type: proprioception # we need this to compute prompt actions even if the policy ignores it
+    gripper_left_gripper_width:
+      shape: [1]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception
+    gripper_left_eef_rot_axis_angle_wrt_start:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      rotation_rep: rotation_6d
+      in_replay_buffer: false
+      ignore_by_policy: true
+      include_in_receding_obs: false
+      include_in_prompt_current_obs: false
+      prompt_type: ignore
+
+    # cross-arm relative pose keys (computed in dataset, not stored in replay buffer)
+    gripper_left_eef_pos_wrt_gripper_right:
+      shape: [3]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      in_replay_buffer: false
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception
+    gripper_right_eef_pos_wrt_gripper_left:
+      shape: [3]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      in_replay_buffer: false
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception
+    gripper_left_eef_rot_axis_angle_wrt_gripper_right:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      rotation_rep: rotation_6d
+      in_replay_buffer: false
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception
+    gripper_right_eef_rot_axis_angle_wrt_gripper_left:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon}
+      down_sample_steps: ${task.obs_down_sample_steps}
+      type: low_dim
+      rotation_rep: rotation_6d
+      in_replay_buffer: false
+      ignore_by_policy: ${task.ignore_proprioception}
+      include_in_receding_obs: true
+      include_in_prompt_current_obs: true
+      prompt_type: proprioception

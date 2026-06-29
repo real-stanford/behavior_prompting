@@ -1,0 +1,8 @@
+# @package _global_
+
+# to run this you should set config name to one of the umi policy configs like:
+# python train.py --config-name=umi_policy_dunetp +rollout=umi
+
+defaults:
+  - base
+  - _self_

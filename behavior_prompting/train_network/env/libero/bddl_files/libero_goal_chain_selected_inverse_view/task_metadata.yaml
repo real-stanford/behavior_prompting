@@ -1,0 +1,3454 @@
+base_split_name: libero_goal
+tasks:
+  open_the_middle_drawer_of_the_cabinet_and_put_the_bowl_inside:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_middle_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_put_the_cream_cheese_inside:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_middle_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_put_the_wine_bottle_inside:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_middle_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_bowl_on_the_plate:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_bowl_on_the_stove:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_middle_drawer_of_the_cabinet_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: open_the_middle_drawer_of_the_cabinet
+    actions_from_steps:
+    - Open wooden_cabinet_1_middle_region
+    execution_steps:
+    - Open wooden_cabinet_1_middle_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_put_the_bowl_inside:
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_region
+    is_existing_task: true
+    source_split: libero_goal
+  open_the_top_drawer_and_put_the_cream_cheese_inside:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_put_the_wine_bottle_inside:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_bowl_on_the_plate:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_bowl_on_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  open_the_top_drawer_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: open_the_top_drawer_and_put_the_bowl_inside
+    actions_from_steps:
+    - Open wooden_cabinet_1_top_region
+    execution_steps:
+    - Open wooden_cabinet_1_top_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_bowl_on_the_stove:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  push_the_plate_to_the_front_of_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: push_the_plate_to_the_front_of_the_stove
+    actions_from_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    execution_steps:
+    - Touch plate_1
+    - Place plate_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_in_front_of_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_cream_cheese_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_cream_cheese_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_plate_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_cream_cheese_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_on_the_bowl_region:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_bowl_on_the_stove
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_cream_cheese_on_the_bowl_region:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_bowl_region:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_akita_black_bowl_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_bowl_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_bowl_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_bowl_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_front_of_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_bowl_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_in_the_bowl_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_bowl_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_plate_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_bowl_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_cream_cheese_region:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_cream_cheese_region_resized
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_cream_cheese_on_top_of_the_cabinet_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: put_the_cream_cheese_in_the_bowl
+    actions_from_steps:
+    - Grasp cream_cheese_1
+    execution_steps:
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_front_of_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_in_the_bowl_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_cream_cheese_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_cream_cheese_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_cream_cheese_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_cream_cheese_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_cream_cheese_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_plate_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_rack_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wine_rack_1_top_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: put_the_wine_bottle_on_the_rack
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_plate:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_stove:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_stove
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_bowl_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  put_the_wine_bottle_on_top_of_the_cabinet_and_then_put_the_cream_cheese_on_the_wine_bottle_region:
+    actions_from: put_the_wine_bottle_on_top_of_the_cabinet
+    actions_from_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    execution_steps:
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_wine_bottle_region_resized
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_bowl_in_front_of_the_stove:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_stove_front_region
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_bowl_on_the_cream_cheese:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cream_cheese_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: open_the_top_drawer_and_put_the_bowl_inside
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_bowl_on_the_plate:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_the_plate
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_bowl_on_top_of_the_cabinet:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: put_the_bowl_on_top_of_the_cabinet
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_cream_cheese_in_front_of_the_stove:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 main_table_stove_front_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_cream_cheese_in_the_bowl:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 akita_black_bowl_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_cream_cheese_on_the_plate:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 plate_1
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_cream_cheese_on_the_stove:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 flat_stove_1_cook_region
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_cream_cheese_on_top_of_the_cabinet:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp cream_cheese_1
+    - Place cream_cheese_1 wooden_cabinet_1_top_side
+    grasps_from:
+      cream_cheese_1:
+        object: cream_cheese_1
+        task: put_the_cream_cheese_in_the_bowl
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_in_front_of_the_stove:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 main_table_stove_front_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_in_the_bowl:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 akita_black_bowl_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_on_the_cream_cheese:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 cream_cheese_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_on_the_plate:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 plate_1
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_on_the_stove:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 flat_stove_1_cook_region
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra
+  turn_on_the_stove_and_then_put_the_wine_bottle_on_top_of_the_cabinet:
+    actions_from: turn_on_the_stove
+    actions_from_steps:
+    - Turnon flat_stove_1
+    execution_steps:
+    - Turnon flat_stove_1
+    - Grasp wine_bottle_1
+    - Place wine_bottle_1 wooden_cabinet_1_top_side
+    grasps_from:
+      wine_bottle_1:
+        object: wine_bottle_1
+        task: put_the_wine_bottle_on_the_rack
+    is_existing_task: false
+    source_split: libero_goal_extra

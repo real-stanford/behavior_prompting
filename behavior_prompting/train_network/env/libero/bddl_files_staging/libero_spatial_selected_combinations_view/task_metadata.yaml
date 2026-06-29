@@ -1,0 +1,96 @@
+base_split_name: libero_spatial
+tasks:
+  pick_up_the_black_bowl_from_table_center_and_place_it_on_the_cookie_box:
+    actions_from: pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 cookies_1
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate:
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 plate_1
+    is_existing_task: true
+    source_split: libero_spatial
+  pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_in_the_black_bowl_next_to_the_ramekin:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 akita_black_bowl_1
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_stove:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 flat_stove_1_cook_region
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_cookie_box_and_place_it_in_the_black_bowl_on_the_wooden_cabinet:
+    actions_from: pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate
+    actions_from_steps:
+    - Grasp akita_black_bowl_1
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 akita_black_bowl_2
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_wooden_cabinet:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 wooden_cabinet_1_top_side
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_plate_and_place_it_in_the_black_bowl_on_the_table_center:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 akita_black_bowl_1
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_plate_and_place_it_on_the_table_center:
+    execution_steps:
+    - Grasp akita_black_bowl_1
+    - Place akita_black_bowl_1 main_table_table_center_resized
+    grasps_from:
+      akita_black_bowl_1:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_ramekin:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 glazed_rim_porcelain_ramekin_1
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
+  pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_between_the_plate_and_the_ramekin:
+    execution_steps:
+    - Grasp akita_black_bowl_2
+    - Place akita_black_bowl_2 main_table_between_plate_ramekin_region_resized
+    grasps_from:
+      akita_black_bowl_2:
+        object: akita_black_bowl_1
+        task: pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate
+    is_existing_task: false
+    source_split: libero_spatial_extra
