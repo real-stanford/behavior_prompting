@@ -73,7 +73,13 @@ This code was made possible thanks to the following projects:
 ## Citation
 If you found this codebase useful in your research, please cite:
 ```
-Coming soon
+@article{patel2026bpp,
+  title={Behavior Prompting Policy: Demonstrations as Prompts for Manipulation}, 
+  author={Austin Patel and Ben Pekarek and Joel Enrique Castro Hernandez and Shuran Song},
+  year={2026},
+  journal={arXiv preprint arXiv:2606.30457},
+  url={https://arxiv.org/abs/2606.30457}
+}
 ```
 
 ## License
