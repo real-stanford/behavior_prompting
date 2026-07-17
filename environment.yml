@@ -73,7 +73,6 @@ dependencies:
     - scikit-image==0.19.3
     - line_profiler==5.0.2
     - open3d==0.19.0
-    - record3d==1.4.1
     - PyExifTool==0.5.0
     - imagecodecs==2023.9.18
     - threadpoolctl==3.2.0
