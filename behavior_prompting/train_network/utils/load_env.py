@@ -3,7 +3,6 @@ import time
 from typing import Callable, List, Optional, Dict, Any
 import hydra
 from libero.libero import get_libero_path
-import zarr
 import random
 import numpy as np
 from behavior_prompting.common.replay_buffer import ReplayBuffer
@@ -235,7 +234,7 @@ def load_env_runner(cfg, output_dir, dataset: Optional[BaseDataset]=None, accele
         if cfg.task.eval_dataset_path is not None:
             print (f"Loading eval replay buffer for env runners from {cfg.task.eval_dataset_path}...")
             start_time = time.time()
-            eval_replay_buffer = ReplayBuffer.copy_from_path(cfg.task.eval_dataset_path, store=zarr.MemoryStore())
+            eval_replay_buffer = ReplayBuffer.create_from_path(cfg.task.eval_dataset_path)
             end_time = time.time()
             print(f"Time taken to load eval replay buffer in load_env_runner: {end_time - start_time} seconds")
 
