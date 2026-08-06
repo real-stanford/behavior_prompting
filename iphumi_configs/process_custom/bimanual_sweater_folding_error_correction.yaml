@@ -1,0 +1,5 @@
+# @package _global_
+
+align_validate:
+  enable_initial_gripper_to_gripper_distance_check: false
+  left_right_max_distance: "<=1.1"

@@ -1,0 +1,7 @@
+# @package _global_
+
+align_validate:
+  max_initial_gripper_to_gripper_y_distance: 0.20 # Max allowed initial |y| offset in left ARKit frame (m). Null to skip check
+  max_initial_gripper_to_gripper_z_distance: 0.20 # Max allowed initial |z| offset in left ARKit frame (m). Null to skip check
+  left_right_min_distance: [">=0.18", "<=0.35"]
+  left_right_max_distance: "<=1.1"
