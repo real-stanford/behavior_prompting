@@ -17,7 +17,7 @@ shape_meta: &shape_meta
   sequence_prompting_min_steps_per_task: 1000
   max_prompt_full_demos: 1
   prompt_chunk_n_actions: 10 # 10 steps at 10Hz is 1 second
-  pad_end_prompt_actions: no # no (default), zeros, or repeat
+  pad_end_prompt_actions: 'no' # no (default), zeros, or repeat
   max_sequence_length: 512 # longest demonstration in the drawing dataset
   use_prompting: false
   prompt_sample_mode: pair
