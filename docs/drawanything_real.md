@@ -7,8 +7,14 @@ hf download austinpatel/iphumi_drawinganything_real --repo-type=dataset --local-
 ```
 
 Dataset contents:
-- We have not uploaded the raw iPhUMI data for this experiment, but reach out if you need it
+- `drawanything_real_raw_data.zip` — raw iPhUMI data for training (940 human demonstrations across the `bendraw-1028`, `ben-drawing-1128`, and `ben-drawing-127` sessions; full-resolution 1920x1440 @ 60 fps main camera plus ultrawide camera and pose metadata)
 - `drawanything_real_replay_buffer.zarr.zip` — training dataset
+- `drawanything_real_raw_data_evaluation_prompts.zip` — raw iPhUMI data for evaluation ("unseen" prompts of known tasks; the `eval-0127-full` session)
+
+## Processing Raw Data
+If you would like to process the raw iPhUMI data yourself, use the `link_shared_iphumi_data.py` script from the iPhUMI repo (see the documentation in that repo for how to use this script). As with the laundry folding release, depth is not included in the raw iPhUMI data.
+
+Note that the raw data covers only the human-collected demonstrations. The remaining 4,872 episodes in `drawanything_real_replay_buffer.zarr.zip` were procedurally generated on the robot and recorded directly at 224x224, so no higher-resolution raw data exists for them.
 
 ## Pretrained Checkpoints
 
