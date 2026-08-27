@@ -8,7 +8,7 @@ hf download austinpatel/iphumi_drawinganything_real --repo-type=dataset --local-
 
 Dataset contents:
 - `drawanything_real_raw_data.zip` — raw iPhUMI data for training (940 human demonstrations across the `bendraw-1028`, `ben-drawing-1128`, and `ben-drawing-127` sessions; full-resolution 1920x1440 @ 60 fps main camera plus ultrawide camera and pose metadata)
-- `drawanything_real_replay_buffer.zarr.zip` — training dataset
+- `drawanything_real_replay_buffer.zarr.zip` — training dataset (contains both the human-collected and procedurally generated demonstrations)
 - `drawanything_real_raw_data_evaluation_prompts.zip` — raw iPhUMI data for evaluation ("unseen" prompts of known tasks; the `eval-0127-full` session)
 
 ## Processing Raw Data
