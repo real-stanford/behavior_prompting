@@ -1,5 +1,12 @@
 # DrawAnything-Real
 
+## Hardware
+CAD files for the whiteboard drawing end-effector are in [assets/whiteboard_drawing_hardware/](../assets/whiteboard_drawing_hardware/):
+- [umi_pen_end_effector/](../assets/whiteboard_drawing_hardware/umi_pen_end_effector/) — pen-holding end-effector mounted on the robot for the whiteboard drawing task
+- [pen_to_spring_adapter/](../assets/whiteboard_drawing_hardware/pen_to_spring_adapter/) — adapter connecting the marker to a spring, which provides passive compliance along the pen axis when drawing on the whiteboard
+
+Each part is provided in several formats: Autodesk Fusion source (`.f3d`/`.f3z`), Autodesk Inventor (`.ipt`), 3D-printable `.3mf`, and mesh (`.obj` + `.mtl`).
+
 ## Setup
 Single arm whiteboard drawing experiments. Dataset is on [Hugging Face](https://huggingface.co/datasets/austinpatel/iphumi_drawinganything_real).
 ```bash
