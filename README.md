@@ -2,7 +2,7 @@
 
 <img src="docs/media/architecture.jpg" width="800">
 
-Accompanying code for the research paper [What Enables In-Context Behavior Prompting for Manipulation?](https://behavior-prompting.github.io/).
+Accompanying code for the research paper [What Enables In-Context Behavior Prompting for Manipulation?](https://behavior-prompting.github.io/)
 
 Authors: [Austin Patel](https://austinapatel.github.io/), [Ben Pekarek](https://benpekarek.github.io/), [Joel Enrique Castro Hernandez](https://joel-ca.github.io/portfolio/), and [Shuran Song](https://shurans.github.io/)
 
