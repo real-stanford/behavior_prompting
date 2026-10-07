@@ -1,8 +1,8 @@
-# Behavior Prompting Policy
+# What Enables In-Context Behavior Prompting for Manipulation?
 
 <img src="docs/media/architecture.jpg" width="800">
 
-Acompanying code for the research paper [Behavior Prompting Policy: Demonstrations as Prompts for Manipulation](https://behavior-prompting.github.io/).
+Accompanying code for the research paper [What Enables In-Context Behavior Prompting for Manipulation?](https://behavior-prompting.github.io/).
 
 Authors: [Austin Patel](https://austinapatel.github.io/), [Ben Pekarek](https://benpekarek.github.io/), [Joel Enrique Castro Hernandez](https://joel-ca.github.io/portfolio/), and [Shuran Song](https://shurans.github.io/)
 
@@ -73,8 +73,8 @@ This code was made possible thanks to the following projects:
 ## Citation
 If you found this codebase useful in your research, please cite:
 ```
-@article{patel2026bpp,
-  title={Behavior Prompting Policy: Demonstrations as Prompts for Manipulation}, 
+@article{patel2026behaviorprompting,
+  title={What Enables In-Context Behavior Prompting for Manipulation?},
   author={Austin Patel and Ben Pekarek and Joel Enrique Castro Hernandez and Shuran Song},
   year={2026},
   journal={arXiv preprint arXiv:2606.30457},
