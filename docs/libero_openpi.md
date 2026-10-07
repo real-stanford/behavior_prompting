@@ -95,6 +95,9 @@ Unseen datasets (unlike behavior prompting which prompts using demonstrations fr
 
 ## Training
 
+> [!NOTE]
+> If you only want to evaluate, you can skip training and download our [pretrained checkpoints](#pretrained-checkpoints) instead.
+
 ### Normalization statistics
 We rewrote their norm stats script to make it much faster. This needs to be done before launching training.
 
@@ -163,7 +166,7 @@ CUDA_VISIBLE_DEVICES=4 XLA_PYTHON_CLIENT_PREALLOCATE=false uv run scripts/serve_
 CUDA_VISIBLE_DEVICES=0 XLA_PYTHON_CLIENT_PREALLOCATE=false uv run scripts/serve_policy.py \
   --env LIBERO policy:checkpoint \
   --policy.config pi05_libero_gen_goal_chain_no_secondstep_lora \
-  --policy.dir checkpoints/pi05_libero_gen_goal_chain_no_secondstep_lora/pi05_libero_gen_goal_chain_no_secondstep_lora_seed0_v2_no_horizontal_flip/99999
+  --policy.dir checkpoints/pi05_libero_gen_goal_chain_no_secondstep_lora/pi05_libero_gen_goal_chain_no_secondstep_lora_seed0_v2_no_horizontal_flip/100000
 ```
 
 And then launch the corresponding LIBERO environment runner script:
@@ -190,6 +193,36 @@ MUJOCO_EGL_DEVICE_ID=0 MUJOCO_GL=egl python examples/libero/main_parallel.py \
   --args.task-suite-names libero_goal_chain_selected_view libero_goal_chain_selected_inverse_view
 
 MUJOCO_EGL_DEVICE_ID=0 MUJOCO_GL=egl python examples/libero/main_parallel.py \
-  --args.run_id=pi05_libero_gen_goal_chain_no_secondstep_lora_seed0_v2_99999 \
+  --args.run_id=pi05_libero_gen_goal_chain_no_secondstep_lora_seed0_v2_100000 \
   --args.task-suite-names libero_goal_chain_selected_view libero_goal_chain_selected_inverse_view
 ```
+
+## Pretrained Checkpoints
+We release the $\pi_{0.5}$ LoRA finetuned checkpoints used for our results on Hugging Face. These are the raw openpi (Orbax) checkpoints, so each Hugging Face repo contains the contents of a single training step directory (`params/`, `train_state/`, `assets/`, `_CHECKPOINT_METADATA`). Download each one into the `checkpoints/<train config>/<exp name>/<step>` location that the `serve_policy.py` commands above expect.
+
+| Task | Hugging Face | Train config (openpi fork) | Training dataset | Step |
+|---|---|---|---|---|
+| LIBERO | [pi05_libero_regenerated_lora](https://huggingface.co/austinpatel/pi05_libero_regenerated_lora) | `pi05_libero_lora_my_regeneration` | [libero_regenerated_openpi](https://huggingface.co/datasets/austinpatel/libero_regenerated_openpi) | 29999 |
+| LIBERO-Gen Spatial Combination | [pi05_libero_gen_spatial_combination_lora](https://huggingface.co/austinpatel/pi05_libero_gen_spatial_combination_lora) | `pi05_libero_gen_spatial_combination_lora` | [libero_gen_spatial_combination_train_openpi](https://huggingface.co/datasets/austinpatel/libero_gen_spatial_combination_train_openpi) | 99999 |
+| LIBERO-Gen Goal Chain | [pi05_libero_gen_goal_chain_lora](https://huggingface.co/austinpatel/pi05_libero_gen_goal_chain_lora) | `pi05_libero_gen_goal_chain_lora` | [libero_gen_goal_chain_train_openpi](https://huggingface.co/datasets/austinpatel/libero_gen_goal_chain_train_openpi) | 99999 |
+| LIBERO-Gen Goal Chain (No Second Step) | [pi05_libero_gen_goal_chain_no_secondstep_lora](https://huggingface.co/austinpatel/pi05_libero_gen_goal_chain_no_secondstep_lora) | `pi05_libero_gen_goal_chain_no_secondstep_lora` | [libero_gen_goal_chain_no_secondstep_train_openpi](https://huggingface.co/datasets/austinpatel/libero_gen_goal_chain_no_secondstep_train_openpi) | 100000 |
+
+> [!NOTE]
+> `pi05_libero_regenerated_lora` is the LIBERO checkpoint finetuned on [libero_regenerated_openpi](https://huggingface.co/datasets/austinpatel/libero_regenerated_openpi), which is our own 256x256 LeRobot conversion of the original LIBERO dataset (released on Hugging Face above), *not* the LeRobot LIBERO dataset that openpi provides. This is why the corresponding train config in the openpi fork is called `pi05_libero_lora_my_regeneration`. We do not release a checkpoint trained on openpi's own LIBERO conversion.
+
+```bash
+# in openpi fork
+hf download austinpatel/pi05_libero_regenerated_lora --repo-type=model \
+  --local-dir checkpoints/pi05_libero_lora_my_regeneration/pi05_libero_my_regeneration_lora_seed0_v1/29999
+
+hf download austinpatel/pi05_libero_gen_spatial_combination_lora --repo-type=model \
+  --local-dir checkpoints/pi05_libero_gen_spatial_combination_lora/pi05_libero_gen_spatial_combination_lora_seed0_v1/99999
+
+hf download austinpatel/pi05_libero_gen_goal_chain_lora --repo-type=model \
+  --local-dir checkpoints/pi05_libero_gen_goal_chain_lora/pi05_libero_gen_goal_chain_lora_seed0_v1/99999
+
+hf download austinpatel/pi05_libero_gen_goal_chain_no_secondstep_lora --repo-type=model \
+  --local-dir checkpoints/pi05_libero_gen_goal_chain_no_secondstep_lora/pi05_libero_gen_goal_chain_no_secondstep_lora_seed0_v2_no_horizontal_flip/100000
+```
+
+After downloading, the `serve_policy.py` commands in the [Evaluation](#evaluation) section work as written. Each checkpoint includes `train_state/` so you can also resume training from it with `--resume`; if you only need inference you can skip that folder with `--exclude "train_state/*"` to roughly halve the download.
