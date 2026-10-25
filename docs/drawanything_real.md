@@ -25,9 +25,9 @@ Note that the raw data covers only the human-collected demonstrations. The remai
 
 ## Pretrained Checkpoints
 
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/iphumi_drawanything_real).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_iphumi_drawanything_real).
 ```bash
-hf download austinpatel/iphumi_drawanything_real --repo-type=model --local-dir ./iphumi_drawanything_real_models
+hf download austinpatel/bp_iphumi_drawanything_real --repo-type=model --local-dir ./iphumi_drawanything_real_models
 ```
 - `drawanything_real_behavior_prompting_policy.ckpt` — behavior prompting policy checkpoint
 - `drawanything_real_goal_image_policy.ckpt` — goal image conditioned policy checkpoint

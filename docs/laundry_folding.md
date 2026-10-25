@@ -35,9 +35,9 @@ If you already processed the data without these configs, you don't need to repro
 
 ## Pretrained Checkpoints
 
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/iphumi_bimanual_laundry_folding).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_iphumi_bimanual_laundry_folding).
 ```bash
-hf download austinpatel/iphumi_bimanual_laundry_folding --repo-type=model --local-dir ./iphumi_bimanual_laundry_folding_models
+hf download austinpatel/bp_iphumi_bimanual_laundry_folding --repo-type=model --local-dir ./iphumi_bimanual_laundry_folding_models
 ```
 - `sweater_folding_behavior_prompting_policy.ckpt` — behavior prompting policy checkpoint
 - `sweater_folding_language_policy.ckpt` — language conditioned policy checkpoint

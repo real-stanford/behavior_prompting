@@ -52,9 +52,9 @@ init_states: <PATH_TO>/behavior_prompting/behavior_prompting/train_network/env/l
 
 ## Pretrained Checkpoints
 
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/libero).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_libero).
 ```bash
-hf download austinpatel/libero --repo-type=model --local-dir ./libero_checkpoints
+hf download austinpatel/bp_libero --repo-type=model --local-dir ./libero_checkpoints
 ```
 - `libero_behavior_prompting.ckpt` — behavior prompting policy checkpoint
 - `libero_language.ckpt` — language conditioned policy checkpoint

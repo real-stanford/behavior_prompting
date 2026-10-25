@@ -41,9 +41,9 @@ python procedural_generate_drawings.py \
 
 ## Pretrained Checkpoints
 
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/drawanything_sim).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_drawanything_sim).
 ```bash
-hf download austinpatel/drawanything_sim --repo-type=model --local-dir ./drawanything_sim_models
+hf download austinpatel/bp_drawanything_sim --repo-type=model --local-dir ./drawanything_sim_models
 ```
 - `drawanything_sim_behavior_prompting.ckpt` — behavior prompting policy checkpoint
 - `drawanything_sim_goal_image.ckpt` — goal image conditioned policy checkpoint

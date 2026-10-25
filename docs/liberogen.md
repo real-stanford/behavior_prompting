@@ -116,27 +116,27 @@ python vis_hdf5.py PATH/TO/demo.hdf5 --generate-video
 ## Pretrained Checkpoints
 
 ### LIBERO-Gen Goal Chain
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/liberogen_goal_chain).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_liberogen_goal_chain).
 ```bash
-hf download austinpatel/liberogen_goal_chain --repo-type=model --local-dir ./liberogen_goal_chain_checkpoints
+hf download austinpatel/bp_liberogen_goal_chain --repo-type=model --local-dir ./liberogen_goal_chain_checkpoints
 ```
 - `liberogen_goal_chain_behavior_prompting.ckpt` — behavior prompting policy checkpoint
 - `liberogen_goal_chain_goal_image.ckpt` — goal image conditioned policy checkpoint
 - `liberogen_goal_chain_language.ckpt` — language conditioned policy checkpoint
 
 ### LIBERO-Gen Goal Chain (No Second Step)
-An ablation variant that trains **without second-step demonstrations**. Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/liberogen_goal_chain_no_secondstep).
+An ablation variant that trains **without second-step demonstrations**. Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_liberogen_goal_chain_no_secondstep).
 ```bash
-hf download austinpatel/liberogen_goal_chain_no_secondstep --repo-type=model --local-dir ./liberogen_goal_chain_no_secondstep_checkpoints
+hf download austinpatel/bp_liberogen_goal_chain_no_secondstep --repo-type=model --local-dir ./liberogen_goal_chain_no_secondstep_checkpoints
 ```
 - `liberogen_goal_chain_no_secondstep_behavior_prompting.ckpt` — behavior prompting policy checkpoint
 - `liberogen_goal_chain_no_secondstep_goal_image.ckpt` — goal image conditioned policy checkpoint
 - `liberogen_goal_chain_no_secondstep_language.ckpt` — language conditioned policy checkpoint
 
 ### LIBERO-Gen Spatial Combination
-Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/liberogen_spatial_combination).
+Checkpoints are on [Hugging Face](https://huggingface.co/austinpatel/bp_liberogen_spatial_combination).
 ```bash
-hf download austinpatel/liberogen_spatial_combination --repo-type=model --local-dir ./liberogen_spatial_combination_checkpoints
+hf download austinpatel/bp_liberogen_spatial_combination --repo-type=model --local-dir ./liberogen_spatial_combination_checkpoints
 ```
 - `liberogen_spatial_combination_behavior_prompting.ckpt` — behavior prompting policy checkpoint
 - `liberogen_spatial_combination_goal_image.ckpt` — goal image conditioned policy checkpoint
