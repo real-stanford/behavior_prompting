@@ -799,7 +799,6 @@ def generate_single_task(args):
     # Generate the procedural trajectory for this task (upright) - same for all demos
     trajectory_control_points, start_pos_upright = generate_procedural_trajectory(
         control_hz, board_length, margin, min_parts, max_parts, 
-        trajectory_speed_min=trajectory_speed_min, trajectory_speed_max=trajectory_speed_max,
         connection_probability=connection_probability, min_distance=min_distance, 
         oval_major_axis_min=oval_major_axis_min, oval_major_axis_max=oval_major_axis_max, 
         partial_oval_probability=partial_oval_probability, allowed_parts=allowed_parts, verbose=verbose)
